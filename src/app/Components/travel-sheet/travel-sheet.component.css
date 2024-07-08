@@ -1,0 +1,46 @@
+/* table,
+th,
+td {
+    border: solid;
+} */
+
+.table-with-bold-lines {
+    border-collapse: collapse;
+}
+
+.table-with-bold-lines th,
+.table-with-bold-lines td {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+}
+
+.table-with-bold-lines p {
+    margin: 0;
+    /* Remove default margin */
+    padding: 5px 10px;
+    /* Adjust padding as needed */
+    line-height: 0.5;
+    /* Adjust line height as needed */
+}
+
+.form-control {
+    height: calc(1.5em + 0.3rem + -2px);
+    border-width: 1px;
+    border-color: skyblue;
+}
+
+.table-bordered tbody tr.alternate-row {
+    background-color: #f0f8ff;
+    /* Light Blue (you can adjust the color) */
+}
+
+.borderless-input {
+    border: none;
+    background-color: transparent;
+}
+
+@media print {
+    @page {
+        size: landscape;
+    }
+}

@@ -1,0 +1,339 @@
+<br><div class="container">
+  <h3 style="text-align: center;">Document Manager</h3>
+
+</div>
+
+  <div style="width: 625.12px; height: 834.51px; left: 100.01px; top: 120.50px; position: absolute; background: white">
+    <div class="col-md-12 row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11" style="margin-top: 20px;">
+        <div class="row">
+          <div class="col-md-5">
+            <label for="companyName" style="margin-bottom: 10px;">Select Company Name:</label>
+          </div>
+          <div class="col-md-11">
+            <ng-select
+              [items]="customerList"
+              [bindLabel]="'companyName'"
+              name="selectedCustomer"
+              [(ngModel)]="selectedCustomer"
+              (change)="onSelectCompany($event)"
+              style="width: 100%;">
+              <ng-option value="" disabled>Select Customer</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <br><br>
+      <div style="width: 580px; height: 430px; left: 13.93px; background-color: #eeeeee; top: 117.80px; position: absolute; border: 1px #DFD7D7 solid">
+        <div class="row">
+          <!-- Address 1 -->
+          <div class="col-md-3" style="margin-top: 10px;">
+           &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;    <label for="address1">Address 1</label>
+          </div>
+          <div class="col-md-7" style="margin-top: 10px;">
+              <input type="text" class="form-control" id="address1" name="addressOne" [(ngModel)]="addressOne" style="height: 29px;" required>
+          </div>
+      
+          <!-- Address 2 -->
+          <div class="col-md-3" style="margin-top: 10px;">
+            &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp; <label for="address2">Address 2</label>
+          </div>
+          <div class="col-md-7" style="margin-top: 10px;">
+              <input type="text" class="form-control" id="address2" name="addressTwo" [(ngModel)]="addressTwo" style="height: 29px;" required>
+          </div>
+      
+          <!-- Address 3 -->
+          <div class="col-md-3" style="margin-top: 10px;">
+            &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;<label for="address3">Address 3:</label>
+          </div>
+          <div class="col-md-7" style="margin-top: 10px;">
+              <input type="text" class="form-control" id="address3" name="addressThree" [(ngModel)]="addressThree" style="height: 29px;" required>
+          </div>
+      
+          <!-- City, State, Pincode -->
+          <div class="col-md-3" style="margin-top: 10px;">
+            &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;   <label for="city">City:</label>
+          </div>
+          <div class="col-md-7" style="margin-top: 10px;">
+              <input class="form-control" type="text" id="city" name="city" [(ngModel)]="city" style="height: 29px;"required>
+          </div>
+      
+          <div class="col-md-3" style="margin-top: 10px;">
+            &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;  <label for="state">State:</label>
+          </div>
+          <div class="col-md-7" style="margin-top: 10px;">
+              <input class="form-control" type="text" id="state" name="state" [(ngModel)]="state" style="height: 29px;" required >
+          </div>
+      
+          <div class="col-md-3" style="margin-top: 10px;">
+            &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;   <label for="pincode">Pincode:</label>
+          </div>
+          <div class="col-md-7" style="margin-top: 10px;">
+              <input class="form-control" type="number" id="pincode" name="pincode" [(ngModel)]="pincode" style="height: 29px;"required>
+     
+          </div>
+          <br><br>
+
+          <div class="row">
+            <div class="col-md-2 form-group text-right">
+                <label class="d-inline" for="cst">CST NO:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" class="form-control" id="cst" placeholder="Enter CST NO" style="height: 29px;" required>
+            </div>
+        
+            <div class="col-md-2 form-group">
+                <label class="d-inline" for="lst">LST NO:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" class="form-control" id="lst" placeholder="Enter LST NO" style="height: 29px;" required>
+            </div>
+        </div>
+        
+        <div class="row"> <div class="col-md-2 form-group text-right">
+                <label class="d-inline" for="tin">TIN NO:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" class="form-control" id="tin" placeholder="Enter TIN NO" style="height: 29px;" required>
+            </div>
+        
+            <div class="col-md-2 form-group">
+                <label class="d-inline" for="ecc">ECC NO:</label>
+            </div>
+            <div class="col-md-3 form-group">
+                <input type="text" class="form-control" id="ecc" placeholder="Enter ECC NO" style="height: 29px;" required>
+            </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="col-md-12 text-center mt-3">
+          
+            <button class="btn btn-success mx-2" (click)="navigateCustomerRegistrationComponent()">New entry</button>
+
+                   
+        </div>
+    </div>
+<br>
+
+<div class="col-md-14" style="overflow: auto; margin-top: 25px; display: flex; flex-direction: column; align-items: flex-start;">
+  <table class="table table-bordered table-with-bold-lines">
+    <tr>
+      <td style="text-align: center; background-color: #757d81; color: #070707;" colspan="6">
+        <h4>Contacts</h4>
+      </td>
+    </tr>
+    <tr style="text-align: center;">
+      <th>SNo</th>
+    
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Email</th>
+     
+    </tr>
+    <tr *ngFor="let details of contactDetails; let i = index">
+      <td>{{(i+1)}}</td>
+   
+      <td>{{details.contactName}}</td>
+      <td>{{details.mobile}}</td>
+      <td>{{details.email}}</td>
+      <td>{{details.designation}}</td>
+
+    </tr>
+  </table>
+  <table class="table table-bordered table-with-bold-lines">
+    <tr class="sticky-header" style="text-align: center;">
+      <td style="width: 10%;"><input placeholder="Sal" class="form-control" type="text" id="salute" name="salute" [(ngModel)]="salute" required></td>
+      <td style="width: 20%;"><input placeholder="Name" class="form-control" type="text" id="contactname" name="contactname" [(ngModel)]="contactname" required></td>
+      <td style="width: 20%;"><input placeholder="Mobile" class="form-control" id="mobile" type="text" name="mobile" [(ngModel)]="mobile" required></td>
+      <td style="width:20%;"><input placeholder="Email" class="form-control" type="text" id="email" name="email" [(ngModel)]="email" required></td>
+      <td style="width: 20%;"><input placeholder="Designation" type="text" class="form-control" id="designation" name="designation" [(ngModel)]="designation" required></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"  colspan="5" >
+        <button class="form-control btn btn-primary" type="button" style="width: 30%;" (click)="addContactDetails()">Add</button>
+      </td>
+    </tr>
+  </table>
+  
+</div>
+<div style="margin-top: 25px; align-self: flex-end;">
+  <!-- <button class="btn btn-danger mx-2">Delete</button> -->
+</div>
+</div>
+
+<div style="width: 775px; height: 842px; left: 797px; top: 50px; position: absolute; background: white">
+<br>
+<div style="width: 723px; height: 200px; left: 50px; top: 54px; position: absolute; background: white; border: 1px #DFD7D7 solid">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="documentTypeDropdown" class="form-label">Document Type</label>
+        <select (change)="OnselectDocumentType($event)" id="documentTypeDropdown" class="form-control dropdownsize12 custom-dropdown">
+          <option value="">Select Document type</option>
+          <option *ngFor="let DocumentType of DocumentTypeList" [value]="DocumentType.documentID">
+            {{ DocumentType.documentName }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <label for="templateDropdown" class="form-label">Template</label>
+        <select (change)="OnselectTemplate($event)" id="templateDropdown" class="form-control dropdownsize123 custom-dropdown">
+          <option value="">Select Template</option>
+          <option *ngFor="let do of TemplateList" [value]="do.documentID">
+            {{ do.templateName }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+  
+  <br>
+    <div class="row mt-3">
+      <div class="col-md-3">
+        &nbsp;<label for="modeOfTransportDropdown" class="form-label">Mode of Transport</label>
+      </div>
+      <div class="col-md-7">
+        <select (change)="onSelectmodeoftransport($event)" id="modeOfTransportDropdown" class="form-control dropdownsize12">
+          <option value="">Select Mode of transport</option>
+          <option *ngFor="let ModeofTransport of ModeofTransportList" [value]="ModeofTransport.modeofTransportID">
+            {{ ModeofTransport.transportName }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+<br><br><br><br>
+  <table>
+    <thead>
+      <tr>
+        <th>sl.no</th>
+        <th>R.no</th>
+        <th>Sender</th>
+        <th>Company name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr> <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr> <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr> <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr> <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  
+    <div style="width: 742px; height: 309px; left: 16px; top: 543px; position: absolute">
+
+      <div class="col">
+    
+        <select (change)="onselectemailtemplate($event)" class="form-control mail-template-dropdown">
+          <option value="">Select Mail Template</option>
+          <option *ngFor="let Mailtemplate of MailTemplateList" [value]="Mailtemplate.mailTemplateID">
+             {{ Mailtemplate.mailTemplateName }}
+          </option>
+       </select>
+       
+    </div>
+    
+    <div class="button-container">
+      <button class="btn btn-primary mx-2">open</button>
+      <button class="btn btn-success mx-2">mail pdf</button>
+      <button class="btn btn-danger mx-2">Delete</button>
+    </div>
+
+    <div class="container12">
+      <div class="row">
+        <div class="col-md-4">
+          <label style="display: inline-block; margin-bottom: 5px;" for="date">Date:</label>
+          <div>
+            <input type="date" class="form-control" [(ngModel)]="value" placeholder="dd-MMM-yyyy">
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <label style="display: inline-block; margin-bottom: 5px;" for="status">Ref:</label>
+          <div>
+            <input type="text" id="status" name="status" class="form-control">
+          </div>
+        </div>
+    
+        <div class="col-md-4">
+          <label style="display: inline-block; margin-bottom: 5px;" for="ref">Doc No:</label>
+          <div>
+            <input type="text" id="ref" name="ref" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+      
+    <div class="text-center">
+      <div class="position-absolute" style="left: 66px; top: 100px; color: black; font-size: 13px; font-family: Inter; font-weight: 500; word-wrap: break-word">
+        <button class="btn btn-primary" onclick="generateDocument()">Generate Document</button>
+      </div>
+    </div>
+  </div>
+
+  

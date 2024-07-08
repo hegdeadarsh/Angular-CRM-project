@@ -1,0 +1,101 @@
+<br><div class="col-md-12 row"><div class="col-md-4"></div>
+<div class="col-md-4">
+<h2 style="text-align: center;">Location details List</h2>
+</div><div class="col-md-1"></div>
+<div class="col-md-2"><button class="btn btn-primary" (click)="newEntry()">New Entry</button></div>
+</div>
+<br>
+
+<div class="col-md-12 row">
+   
+    <div class="col-md-3">
+        <label for="unit">Machine Number:</label>
+        <input class="form-control" type="text" id="machineNumber" name="machineNumber" (change)="onChangeMachineNumber()" [(ngModel)]="machineNumber" required>
+    </div>
+  
+    
+    <div class="col-md-3">
+        <label for="companyName">Select Customer Name:</label>
+        <ng-select [items]="customerList" [bindLabel]="'companyName'" [(ngModel)]="selectedCustomer" (change)="onSelectCompany($event)">
+            <ng-option value="" disabled>Select Customer</ng-option>
+        </ng-select>
+    </div>
+
+
+
+    <div class="col-md-3">
+        <label for="clusterName"> Select Cluster Name:</label>
+        <ng-select [items]="clusterlist" [bindLabel]="'clusterName'" [(ngModel)]="selectedCluster" (change)="onSelectCluster($event)">
+            <ng-option value="" disabled>Select Cluster Name</ng-option>
+        </ng-select>
+    </div>
+</div>
+
+<br><br>
+
+<div *ngIf="allrequest" class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table   #table id ="tableId" class="table table-bordered"
+                style="border-width:1px; border-color:black;font-size:20px;padding: 5px;margin: 0 auto; ">
+                <thead>
+
+                    <tr style="border-width:1px; border-color:black;font-size:15px;">
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">SlNo.</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Customer Name</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Machine Number</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Location Type</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Road Condition</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Nearby Lodge</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Nearby Petrolbank</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Nearby MedicalShops</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Nearby MechanicShops</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Nearby Hospital</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Hotel Type</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Best Hotels</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">What to carry</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Text Area</th>
+                        
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Created By</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Created On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let location of locationlist | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index">
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px">{{10 * (p-1)+(i+1)}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.customerName}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px">{{location.machineNumber}}</td>
+                        
+                        
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.insideCityOutsideCity}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.roadCondition}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.nearbyLodge}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.nearbyPetrolBunk}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.nearbyMedicalShop}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.nearbyMechanicShops}}
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.nearbyHospital}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.hotelType}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.bestHotels}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.whatToCarry}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.textArea}}</td>
+                       
+                      
+                       
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{location.userName}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px">{{location.createdOn |date:'dd-MMM-y'}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+            <div style="text-align: center;" *ngIf="exporting">
+                <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+                <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>    </div>
+        </div>
+        <br><br><br>
+        <pagination-controls (pageChange)="p = $event" class="custom-pagination" style="float: right"></pagination-controls>
+    </div>
+</div><br><br><br><br><br>

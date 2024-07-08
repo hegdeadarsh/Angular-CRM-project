@@ -1,0 +1,490 @@
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/regular.css" integrity="sha384-FKw7x8fCxuvzBwOJmhTJJsKzBl8dnN9e2R4+pXRfYoHivikuHkzWyhKWDSMcGNK8" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div>&nbsp;</div>
+<div class="container">
+    <h2 class="text-center">Invoice List</h2>
+</div><br>
+
+
+<div class="row">
+    <div class="col-md-2 offset-md-4">
+        <label for="companyName">Select Customer Name:</label>
+        <ng-select [items]="customerList" [bindLabel]="'companyName'" name="selectedCustomer" [(ngModel)]="selectedCustomer" (change)="onSelectCompany($event)">
+            <ng-option value="" disabled>Select Customer</ng-option>
+        </ng-select>
+    </div>
+
+    <div class="col-md-2">
+        <label for="machineNumber">Machine Number:</label>
+        <input class="form-control" type="text" id="machineNumber" name="machineNumber" (change)="onChangeMachineNumber()" [(ngModel)]="machineNumber" required>
+    </div>
+</div>
+<br>
+
+    <div class="col-md-2"></div>
+    <!-- <div class="col-md-4">
+        <label for="companyName">Select Company Name:</label>
+        <select (change)="onSelectCompany($event)" class="form-control">
+            <option value="">Select Customer</option>
+            <option *ngFor="let customer of customerList" value={{customer.customerID}} >
+              {{customer.companyName}}
+            </option>
+        </select>
+    </div> -->
+
+<div class="col-md-12" *ngIf="CustumerDetails">
+
+    <div class="table-responsive" style="max-height: 800px; overflow-y: auto;">
+        <table class="table table-bordered" style="border-width:1px; border-color:black;font-size:20px;padding: 5px;margin: 0 auto; ">
+            <thead>
+                <tr style="border-width:1px; border-color:black;font-size:15px;">
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Customer Name</th>
+
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Unit</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Address One</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Address Two</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Address Three</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Pincode</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">City</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">State</th>
+                    <!-- <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Country</th> -->
+
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">View Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let aa of perticularCustomerData let i = index" style="border-width:1px; border-color:black;font-size:20px;">
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{aa.companyName}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{aa.unit}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{aa.addressOne}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{aa.addressTwo}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{aa.addressThree}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{aa.pincode }}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{aa.city }}</td>
+
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{aa.state }}</td>
+                    
+                    <!-- <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{aa.country }}</td> -->
+                    <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;"><i class="fas fa-eye action-icon"  data-toggle="modal" data-target="#myModal" (click)="ViewDetails(aa)"></i></td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br />
+       
+        <br /><br />
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+</div>
+
+
+<div class="col-md-12" *ngIf="CustumerInvoiceDetails">
+    
+    <div class="table-responsive" style="max-height: 800px; overflow-y: auto;">
+        <table #table id ="tableId" class="table table-bordered" style="border-width:1px; border-color:black;font-size:20px;padding: 5px;margin: 0 auto; ">
+            <thead>
+                <tr style="border-width:1px; border-color:black;font-size:15px;">
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;    width: 3%;">Sl No</th>
+
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">Invoice name</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">View Invoice</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">Invoice Number</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">Created By</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">Created On</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let abd of perticularCustomerInvoiceData let i = index" style="border-width:1px; border-color:black;font-size:20px;">
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{ 10 * (p - 1) + (i+1)}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{abd.invoiceName}}</td>
+                  <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;"><i class="fas fa-eye action-icon"  data-toggle="modal" data-target="#myModalImage" (click)="ViewImage(abd)"></i></td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{abd.invoiceNumber}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">{{abd.createdBy}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{abd.createdOn | date}}</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div style="text-align: center;" *ngIf="exporting">
+            <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+            <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>    </div>
+    </div>
+    <br>
+      
+        <br /><br />
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+</div>
+
+<div class="container">
+   
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+           
+            <h4 class="modal-title custom-title" >Customer Details</h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-12 row">
+                <div class="form-horizontal container">
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Customer Name:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewcustomername" name="viewcustomername"
+                                [(ngModel)]="viewcustomername" readonly/>
+                        </div>
+                    </div>
+                    <br />
+    
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Unit Name :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewunitname"
+                                name="viewunitname" [(ngModel)]="viewunitname" readonly />
+                        </div>
+                    </div><br />
+    
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Address One :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewaddressone"
+                                name="viewunitname" [(ngModel)]="viewunitname" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Address Two :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewaddresstwo"
+                                name="viewaddresstwo" [(ngModel)]="viewaddresstwo" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Address Three:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewaddressthree"
+                                name="viewaddressthree" [(ngModel)]="viewaddressthree" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Pincode:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewpincode"
+                                name="viewpincode" [(ngModel)]="viewpincode" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">City:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewcity"
+                                name="viewcity" [(ngModel)]="viewcity" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">State :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewstate"
+                                name="viewstate" [(ngModel)]="viewstate" readonly />
+                        </div>
+                    </div><br />
+                    <!-- <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Country:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewcountry"
+                                name="viewcountry" [(ngModel)]="viewcountry" readonly />
+                        </div>
+                    </div><br /> -->
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">GSTIN :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewgstin"
+                                name="viewgstin" [(ngModel)]="viewgstin" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Cluster:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewcluster"
+                                name="viewcluster" [(ngModel)]="viewcluster" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">RouteNumber:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewroutenumber"
+                                name="viewroutenumber" [(ngModel)]="viewroutenumber" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Region :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewregion"
+                                name="viewregion" [(ngModel)]="viewregion" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Zone :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewzone"
+                                name="viewzone" [(ngModel)]="viewzone" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">WeekOff:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewweekoff"
+                                name="viewweekoff" [(ngModel)]="viewweekoff" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Working Start:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewworkingstart"
+                                name="viewworkingstart" [(ngModel)]="viewworkingstart" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Working End :</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewworkingend"
+                                name="viewworkingend" [(ngModel)]="viewworkingend" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Created By:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewcreatedby"
+                                name="viewcreatedby" [(ngModel)]="viewcreatedby" readonly />
+                        </div>
+                    </div><br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Created On:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewcreatedon"
+                                name="viewcreatedon" [(ngModel)]="viewcreatedon" readonly />
+                        </div>
+                    </div><br />
+    
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+
+
+  
+<div class="container">
+   
+    <!-- Modal -->
+    <div class="modal fade" id="myModalImage" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+           
+            <!-- <h4 class="modal-title custom-title">Invoice</h4> -->
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+          </div>
+          <div class="modal-body">
+            <ngx-doc-viewer [url]="InvoiceImage" viewer="google" style="width:100%; height: 70vh;"></ngx-doc-viewer>
+            <!-- <a>
+                <img src="data:image/png;base64, {{InvoiceImage}}" alt="images">
+                
+              </a> -->
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            <div class="col-lg-12 row">
+                <div class="col-lg-5"></div>
+                <div class="col-lg-6">
+                    <a [href]="InvoiceImage"><button class="btn btn-info">
+                            <i class="fa fa-download"></i>Download
+                        </button>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+<!-- <ng-template #viewdetails let-d="dismiss" let-c="dismiss"  >
+    <div class="modal-header">
+        <h4 class="modal-title w-100"  style="text-align: center"> CUSTOMER DETAILS</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+
+        <div class="col-md-12 row">
+            <div class="form-horizontal container">
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Customer Name:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewcustomername" name="viewcustomername"
+                            [(ngModel)]="viewcustomername" readonly/>
+                    </div>
+                </div>
+                <br />
+
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Unit Name :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewunitname"
+                            name="viewunitname" [(ngModel)]="viewunitname" readonly />
+                    </div>
+                </div><br />
+
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Address One :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewaddressone"
+                            name="viewunitname" [(ngModel)]="viewunitname" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Address Two :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewaddresstwo"
+                            name="viewaddresstwo" [(ngModel)]="viewaddresstwo" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Address Three:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewaddressthree"
+                            name="viewaddressthree" [(ngModel)]="viewaddressthree" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Pincode:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewpincode"
+                            name="viewpincode" [(ngModel)]="viewpincode" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">City:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewcity"
+                            name="viewcity" [(ngModel)]="viewcity" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">State :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewstate"
+                            name="viewstate" [(ngModel)]="viewstate" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Country:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewcountry"
+                            name="viewcountry" [(ngModel)]="viewcountry" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">GSTIN :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewgstin"
+                            name="viewgstin" [(ngModel)]="viewgstin" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Cluster:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewcluster"
+                            name="viewcluster" [(ngModel)]="viewcluster" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">RouteNumber:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewroutenumber"
+                            name="viewroutenumber" [(ngModel)]="viewroutenumber" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Region :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewregion"
+                            name="viewregion" [(ngModel)]="viewregion" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Zone :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewzone"
+                            name="viewzone" [(ngModel)]="viewzone" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">WeekOff:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewweekoff"
+                            name="viewweekoff" [(ngModel)]="viewweekoff" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Working Start:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewworkingstart"
+                            name="viewworkingstart" [(ngModel)]="viewworkingstart" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Working End :</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewworkingend"
+                            name="viewworkingend" [(ngModel)]="viewworkingend" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Created By:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewcreatedby"
+                            name="viewcreatedby" [(ngModel)]="viewcreatedby" readonly />
+                    </div>
+                </div><br />
+                <div class="col-md-12 row">
+                    <label class="col-md-4" style="color:black;padding-top: 13px">Created On:</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="viewcreatedon"
+                            name="viewcreatedon" [(ngModel)]="viewcreatedon" readonly />
+                    </div>
+                </div><br />
+
+            </div>
+        </div>
+
+    </div>
+   
+    <br />
+</ng-template> -->

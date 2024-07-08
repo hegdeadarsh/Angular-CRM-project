@@ -1,0 +1,47 @@
+<br><div class="col-md-12 row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+    <h2><strong>Your Trips</strong></h2>
+    
+</div>
+<div class="col-md-2"></div>
+</div><br>
+
+<div class="table-responsive" style="max-height: 800px; overflow-y: auto;">
+<div class="col-md-12 row">
+    <div class="col-md-3"></div>
+    <div class="table col-md-6">
+        <table class="table table-bordered" #table id="tableId">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 10%; text-align: right;">Sl</th>
+                <th scope="col" style="text-align: right;">Trip Sheet No</th>
+                <th scope="col">Created On</th>
+                <th scope="col" style="width: 10%;">Fetch</th>
+                <th *ngIf="this.roleId == 3 && this.IsLoggedIn == true" scope="col" style="width: 10%;">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let abc of tripList let i = index">
+                <td style="text-align: right;">{{10 * (p-1)+(i+1)}}</td>
+                <td style="text-align: right;">{{abc.tripSheetNo}}</td>
+                <td>{{abc.createdOn | date }}</td>
+                <td><button class="btn btn-primary" (click)="openTripSheet(abc)">Fetch</button></td>
+                <td *ngIf="this.roleId == 3 && this.IsLoggedIn == true"><button class="btn btn-danger" (click)="deleteTripData(abc.tripSheetNo)">Delete</button></td>
+              </tr>
+                            
+            </tbody>
+          </table>
+    </div><div class="col-md-3"></div></div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-3">
+    
+  </div>
+  </div>
+  <div style="text-align: center;" >
+    <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel
+        &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+    <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to
+        PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>
+</div>

@@ -1,0 +1,152 @@
+<div class="registration-form">
+    <br>
+    <h2 style="text-align: center;">Customer Edit Form</h2><br>
+    <form>
+        <div class="form-row">
+            <div class="col">
+                <label for="editcompanyName">Company Name:</label>
+                <input type="text" id="editcompanyName" name="editcompanyName" [(ngModel)]="editcompanyName" required>
+            </div>
+            <div class="col">
+                <label for="editunit">Unit:</label>
+                <input type="text" id="editunit" name="editunit" [(ngModel)]="editunit" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editaddressOne">Address 1</label>
+                <textarea id="editaddressOne" name="editaddressOne" [(ngModel)]="editaddressOne" required></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editaddressTwo">Address 2</label>
+                <textarea id="editaddressTwo" name="editaddressTwo" [(ngModel)]="editaddressTwo" required></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editaddressThree">Address 3:</label>
+                <textarea id="editaddressThree" name="editaddressThree" [(ngModel)]="editaddressThree" required></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editpincode">Pincode:</label>
+                <input type="number" id="editpincode" name="editpincode" (change)="onPincodeChange()" [(ngModel)]="editpincode" required>
+            </div>
+            <div class="col">
+                <label for="editcity">City:</label>
+                <input type="text" id="editcity" name="editcity" [(ngModel)]="editcity" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editstate">State:</label>
+                <input type="text" id="editstate" name="editstate" [(ngModel)]="editstate" required>
+            </div>
+            <div class="col">
+                <!-- <label for="editcountry">Country:</label>
+                <input type="text" id="editcountry" name="editcountry" [(ngModel)]="editcountry" required> -->
+                <!-- <label for="country">Country:</label>
+                <select (change)="onSelectCountry($event)" class="form-control">
+                    <option value="">Select Country</option>
+                    <option *ngFor="let country of countrylist" value={{country.id}} >
+                      {{country.countryName}}
+                    </option>
+                </select> -->
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editgstin">GSTIN:</label>
+                <input type="text" id="editgstin" name="editgstin" [(ngModel)]="editgstin" required>
+            </div>
+            <div class="col">
+                <!-- <label for="cluster">Cluster:</label>
+                <input type="text" id="cluster" name="cluster" [(ngModel)]="cluster" required> -->
+
+                <label for="cluster">Select Cluster:</label>
+                <select (change)="onSelectCluster($event)" class="form-control">
+                    <option value="">Select Cluster</option>
+                    <option *ngFor="let cluster of clusterlist" value={{cluster.clusterId}} [selected]="cluster.clusterId === editselectedcluster" >
+                      {{cluster.clusterName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <!-- <label for="routeNo">Route No:</label>
+                <input type="text" id="routeNo" name="routeNo" [(ngModel)]="routeNo" required> -->
+
+                <label for="cluster">Select Route:</label>
+                <select (change)="onSelectRoute($event)" class="form-control">
+                    <option value="">Select Route</option>
+                    <option *ngFor="let route of routelist" value={{route.routeId}} [selected]="route.routeId === editselectedroute">
+                      {{route.routeName}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <!-- <label for="region">Region:</label>
+                <input type="text" id="region" name="region" [(ngModel)]="region" required> -->
+
+                <label for="cluster">Select Region:</label>
+                <select (change)="onSelectRegion($event)" class="form-control">
+                    <option value="">Select Region</option>
+                    <option *ngFor="let region of regionlist" value={{region.regionId}} [selected]="region.regionId === editselectedregion">
+                      {{region.regionName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <!-- <label for="zone">Zone:</label>
+                <input type="text" id="zone" name="zone" [(ngModel)]="zone" required> -->
+
+                <label for="cluster">Select Zone:</label>
+                <select (change)="onSelectZone($event)" class="form-control" >
+                    <option value="">Select Zone</option>
+                    <option *ngFor="let zone of zonelist" value={{zone.zoneId}}  [selected]="zone.zoneId === editselectedZone">
+                      {{zone.zoneName}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="editweeklyOff">Weekly Off:</label>
+                <select class="form-control" id="editweeklyOff" name="editweeklyOff" [(ngModel)]="editweeklyOff" required>
+                    <option value="sunday">Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editworkingStart">Working Start:</label>
+                <input type="text" id="editworkingStart" name="editworkingStart" [(ngModel)]="editworkingStart" required>
+            </div>
+            <div class="col">
+                <label for="editworkingEnd">Working End:</label>
+                <input type="text" id="editworkingEnd" name="editworkingEnd" [(ngModel)]="editworkingEnd" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="editsecurityFormalities">Security Formalities:</label>
+                <textarea id="editsecurityFormalities" name="editsecurityFormalities" [(ngModel)]="editsecurityFormalities" required></textarea>
+            </div>
+        </div>
+        <div class="register-button">
+            <button type="submit" class="btn btn-primary" (click)="updateCustomerregistration()">Update Customer</button>
+        </div>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br>

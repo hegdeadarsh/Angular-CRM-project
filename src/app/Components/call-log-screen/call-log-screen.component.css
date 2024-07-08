@@ -1,0 +1,16 @@
+.table-with-bold-lines {
+  border-collapse: collapse;
+}
+
+.table-with-bold-lines th,
+.table-with-bold-lines td {
+  border: 1px solid black; 
+}
+.hover-text {
+  background-color: #faefef; /* Initial background color */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.hover-text:hover {
+  background-color: #c7bbbb; /* Background color on hover */
+}

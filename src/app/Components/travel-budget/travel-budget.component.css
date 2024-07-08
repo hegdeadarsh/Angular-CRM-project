@@ -1,0 +1,24 @@
+table td {
+    position: relative;
+  }
+  
+  table td input {
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  .table-with-bold-lines {
+    border-collapse: collapse;
+}
+
+.table-with-bold-lines th,
+.table-with-bold-lines td {
+    border: 1px solid black; 
+}

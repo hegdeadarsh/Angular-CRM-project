@@ -1,0 +1,261 @@
+<br>
+<h2 style="text-align: center;">Machine Registration Form</h2>
+<br>
+<form>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="companyName">Select Company Name:</label>
+            <ng-select
+              [items]="customerList"
+              [bindLabel]="'companyName'" name="selectedCustomer"
+              [(ngModel)]="selectedCustomer"
+              (change)="onSelectCompany($event)">
+              <ng-option value="" disabled>Select Customer</ng-option>
+            </ng-select>
+          </div>
+        <div class="col-md-3">
+            <label for="unit">Unit:</label>
+            <input class="form-control" type="text" id="unit" name="unit" [(ngModel)]="unit" required>
+        </div>
+        <div class="col-md-3">
+            <label for="address1">Address 1</label>
+            <textarea class="form-control" id="address" name="addressOne" [(ngModel)]="addressOne" required></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="address1">Address 2</label>
+            <textarea class="form-control" id="address" name="addressTwo" [(ngModel)]="addressTwo" required></textarea>
+        </div>
+        <div class="col-md-3">
+            <label for="address1">Address 3:</label>
+            <textarea class="form-control" id="address" name="addressThree" [(ngModel)]="addressThree" required></textarea>
+        </div>
+        <div class="col-md-3">
+            <label for="pincode">Pincode:</label>
+            <input class="form-control" type="number" id="pincode" name="pincode" [(ngModel)]="pincode" required>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="city">City:</label>
+            <input class="form-control" type="text" id="city" name="city" [(ngModel)]="city" required>
+        </div>
+        <div class="col-md-3">
+            <label for="state">State:</label>
+            <input class="form-control" type="text" id="state" name="state" [(ngModel)]="state" required>
+        </div>
+        <div class="col-md-3">
+            <label for="state">Country:</label>
+            <input class="form-control" type="text" id="country" name="country" [(ngModel)]="country" required>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="gstin">GSTIN:</label>
+            <input class="form-control" type="text" id="gstin" name="gstin" [(ngModel)]="gstin" required>
+        </div>
+        <div class="col-md-3">
+            <label for="cluster">Cluster:</label>
+            <input class="form-control" type="text" id="cluster" name="cluster" [(ngModel)]="cluster" required>
+        </div>
+        <div class="col-md-3">
+            <label for="routeNo">Route No:</label>
+            <input class="form-control" type="text" id="routeNo" name="routeNo" [(ngModel)]="routeNo" required>
+        </div>
+    </div><br>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="region">Region:</label>
+            <input class="form-control" type="text" id="region" name="region" [(ngModel)]="region" required>
+        </div>
+        <div class="col-md-3">
+            <label for="zone">Zone:</label>
+            <input class="form-control" type="text" id="zone" name="zone" [(ngModel)]="zone" required>
+        </div>
+        <div class="col-md-3">
+            <label for="weeklyOff">Weekly Off:</label>
+            <input class="form-control" type="text" id="weeklyOff" name="weeklyOff" [(ngModel)]="weeklyOff" required>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="workingStart">Working Start:</label>
+            <input class="form-control" type="text" id="workingStart" name="workingStart" [(ngModel)]="workingStart" required>
+        </div>
+        <div class="col-md-3">
+            <label for="workingEnd">Working End:</label>
+            <input class="form-control" type="text" id="workingEnd" name="workingEnd" [(ngModel)]="workingEnd" required>
+        </div>
+        <div class="col-md-3">
+            <label for="securityFormalities">Security Formalities:</label>
+            <textarea class="form-control" id="securityFormalities" name="securityFormalities" [(ngModel)]="securityFormalities" required></textarea>
+        </div>
+    </div>
+    <br>
+    <p style="text-align: center;"><b>Add Machine Details</b></p>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="machineNumber">Machine Number:</label>
+            <input class="form-control" type="text" id="machineNumber"  maxlength="5" name="machineNumber" [(ngModel)]="machineNumber" required>
+        </div>
+        <div class="col-md-3">
+            <label for="companyName">Select Model:</label>
+            <select (change)="onSelectModel($event)" class="form-control">
+                <option value="">Select Model</option>
+                <option *ngFor="let model of modellist" value={{model.modelId}} >
+                  {{model.modelName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="address1">Invoice Number</label>
+            <input class="form-control" type="text" id="invoiceNumber" name="invoiceNumber" [(ngModel)]="invoiceNumber" required>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <label for="unit">Invoice Date:</label>
+            <input class="form-control" type="date" id="invoicedate" name="invoicedate" [(ngModel)]="invoicedate" required>
+        </div>
+        <div class="col-md-3">
+            <label for="unit">Invoice Amount:</label>
+            <input class="form-control" type="text" id="invoiceamount" name="invoiceamount" [(ngModel)]="invoiceamount" required>
+        </div>
+        <div class="col-md-3">
+            <label for="address1">Invoice PDF/Photo</label>
+            <input class="form-control" type="file" id="invoicedoc" name="invoicedoc" [(ngModel)]="invoicedoc" (change)="onselectdoc($event)" required>
+        </div>
+       
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-3"></div>
+       
+        <div class="col-md-5">
+            <label for="unit">Due Amount:</label>
+            <input class="form-control" type="text" id="dueamount" name="dueamount" [(ngModel)]="dueamount" required>
+        </div>
+       
+        <div class="col-md-4"><br>
+
+            <button class="btn btn-primary" (click)="uploadInvoice()"><i class="fa fa-upload" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-3"></div>
+        <!-- <div class="col-md-3">
+            <label for="unit">Features:</label>
+            <select (change)="onSelectFeature($event)" class="form-control">
+                <option value="">Select Features</option>
+                <option *ngFor="let features of featureslist" value={{features.featuresID}} >
+                  {{features.featuresName}}
+                </option>
+            </select>
+        </div> -->
+        <div class="col-md-3">
+            <label for="unit">Features:</label>
+            <ng-select [items]="featureslist" name="features" [(ngModel)]="selectedFeatures" [multiple]="true" placeholder="Select Options" (change)="onSelectFeature()">
+            </ng-select>
+        </div>
+        <div class="col-md-3">
+            <label for="unit">Invoice Particular:</label>
+            <select (change)="onSelectInvoiceperticular($event)" class="form-control">
+                <option value="">Select Invoice Particular</option>
+                <option *ngFor="let perticular of invoiceperticularlist" value={{perticular.invoicePerticularId}} >
+                  {{perticular.invoicePerticularName}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="col-md-12 row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <label for="address1">Warranty From</label>
+            <input class="form-control" type="date" id="warrantyFrom" name="warrantyFrom" [(ngModel)]="warrantyFrom" required>
+        </div>
+        <div class="col-md-3">
+            <label for="address1">Warranty Till</label>
+            <input class="form-control" type="date" id="warrantyTill" name="warrantyTill" [(ngModel)]="warrantyTill" required>
+        </div>
+    </div><br>
+    <p style="text-align: center;"><b>Add Contact Details</b></p>
+    <div class="col-md-12 row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <label for="machineNumber">Salute:</label>
+            <input class="form-control" type="text" id="salute" name="salute" [(ngModel)]="salute" required>
+        </div>
+        <div class="col-md-2">
+            <label for="machineNumber">Contact Name:</label>
+            <input class="form-control" type="text" id="contactname" name="contactname" [(ngModel)]="contactname" required>
+        </div>
+        <div class="col-md-2">
+            <label for="address1">Designation:</label>
+            <input class="form-control" id="designation" name="designation" [(ngModel)]="designation" required>
+        </div>
+        <div class="col-md-2">
+            <label for="address1">Email:</label>
+            <input class="form-control" id="email" name="email" [(ngModel)]="email" required>
+        </div>
+        <div class="col-md-2">
+            <label for="address1">Mobile:</label>
+            <input class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile" required>
+        </div>
+        <div class="col-md-1">
+            <br> <button class="form-control" type="submit" class="btn btn-primary" (click)="addContactDetails()">Add</button>
+        </div>
+    </div><br>
+    <div class="col-md-11">
+        <div class="table-responsive">
+            <table class="table table-bordered" style="border-width:1px; border-color:black;font-size:16px;padding: 5px;margin: 0 auto; ">
+                <thead>
+                    <tr style="border-width:1px; border-color:black;font-size:10px;">
+                        <th class="custom-col" style="border-width:1px; border-color:rgb(248, 244, 244); color: rgb(231, 172, 94); background-color:rgb(27, 9, 129); text-align: center; width: 1%;">SlNo.</th>
+                        <th class="custom-col" style="border-width:1px; border-color:rgb(248, 244, 244); color: rgb(231, 172, 94); background-color:rgb(27, 9, 129); text-align: center; width: 2%;">Salute</th>
+                        <th class="col-2" style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center; width: 8%;">Contact Name</th>
+                        <th class="col-2" style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center; width: 8%;">Designation</th>
+                        <th class="col-2" style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center; width: 8%;">Email</th>
+                        <th class="col-2" style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center; width: 8%;">Mobile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let details of contactdetailslist; let i = index">
+                        <td style="border-width:1px; border-color:black;text-align: right; font-size: 14px;">{{(i+1)}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left; font-size: 14px;">{{details.salute}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left; font-size: 14px;">{{details.contactName}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left; font-size: 14px;">{{details.designation}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left; font-size: 14px;">{{details.email}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right; font-size: 14px;">{{details.mobile}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+            <!-- <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls> -->
+    
+    <br><br>
+    <div class="col-md-12 row">
+        <div class="col-md-6 row"></div>
+        <div class="register-button">
+            <button type="submit" class="btn btn-primary form-control" (click)="registerMachine()">Register</button>
+        </div>
+    </div>
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br>

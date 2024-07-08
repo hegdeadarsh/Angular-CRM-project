@@ -1,0 +1,287 @@
+<div>&nbsp;</div>
+<div class="container">
+    <h2 class="text-center">Follow-Up</h2>
+</div><br>
+
+<div class="col-md-12 row">
+    <div class="col-md-4"></div>
+    <!-- <div class="col-md-4">
+        <label for="companyName">Select Company Name:</label>
+        <select (change)="onSelectCompany($event)" class="form-control">
+            <option value="">Select Customer</option>
+            <option *ngFor="let customer of customerList" value={{customer.customerID}}>
+                {{customer.companyName}}
+            </option>
+        </select>
+    </div> -->
+   <div class="col-md-12 row">
+    <!-- First row -->
+    <div class="col-md-3">
+        <label for="companyName">Select Customer Name:</label>
+        <ng-select [items]="customerList" [bindLabel]="'companyName'" name="customerName" [(ngModel)]="selectedCustomer" (change)="onSelectCompany($event)">
+            <ng-option value="" disabled>Select Customer</ng-option>
+        </ng-select><br>
+    </div>
+    <div class="col-md-4"></div>
+
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm">
+            <button  class="btn btn-info bootstrapbutton" (click)="FollowupComplete()">Completed payment &nbsp;&nbsp;</button>
+        </div>
+
+        <div class="col-sm">
+            <button  class="btn btn-info bootstrapbutton" (click)="FollowupList()">View Follow Up &nbsp;&nbsp;</button>
+        </div>
+
+        <div class="col-sm">
+            <button  class="btn btn-info bootstrapbutton" (click)="FollowupPending()">Pending Payment &nbsp;&nbsp;</button>
+        </div>
+
+    </div>
+</div>
+<br>
+
+
+<div class="col-md-12" *ngIf="invoicedetails">
+    
+    <div class="table-responsive" style="max-height: 800px; overflow-y: auto;">
+        <table #table id="tableId" class="table table-bordered" style="border-width:1px; border-color:black;font-size:15px;padding: 5px;margin: 10px auto; width: 70%; ">
+            <thead>
+                <tr style="border-width:1px; border-color:black;font-size:12px;">
+                    <!-- <th
+                        style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Sl No</th> -->
+
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        Machine Number</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Customer Name</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Model Name</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Invoice Amount</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        Due Amount</th>
+                    <!-- <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        IsPaid</th> -->
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        FollowUp Status</th>
+
+
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Make FollowUp </th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                          FollowUp date</th>
+    
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let abd of FollowUpList let i = index" style="border-width:1px; border-color:black;font-size:20px;">
+                    <!-- <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">{{ 5 * (p - 1) +
+                        (i+1)}}</td> -->
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{abd.machineNumber}}</td>
+                    <!-- <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;"><i class="fas fa-eye action-icon"  data-toggle="modal" data-target="#myModalImage" (click)="ViewImage(abd)"></i></td> -->
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:14px;">
+                        {{abd.customerName}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{abd.modelName}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">{{abd.invoiceAmount}}</td>
+
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{abd.dueAmount}}</td>
+                        
+                    <!-- <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">
+                        {{abd.isPaid}}</td> -->
+                    <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">
+                        <button *ngIf="abd.isPaid" class="btn btn-success">Completed</button>
+                        <button *ngIf="!abd.isPaid" class="btn btn-danger">Pending</button></td>
+                    <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#myModalFollowup" (click)="MakeFollowUp(abd)">Make Follow-Up</button></td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                            {{abd.createdOn |date}}</td> 
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+    </div>
+    <br />
+   
+    <br /><br />
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+</div>
+
+
+
+
+
+<div class="col-md-12" *ngIf="followupdetails">
+    <div class="table-responsive" style="height: 300px; overflow-y: scroll;">
+        <table #table id="tableIdfo" class="table table-bordered" style="border-width:1px; border-color:black;font-size:15px;padding: 5px;margin: 0 auto; ">
+            <thead>
+                <tr style="border-width:1px; border-color:black;font-size:12px;">
+                    <!-- <th
+                        style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Sl No</th> -->
+
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        Sl No</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Date</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Time</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Customer Name</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        invoiceNumber</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        machineNumber</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        modelName</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        paymentsList</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color: rgb(27, 9, 129);text-align: center;">
+                        Remarks</th>
+                    <th style="border-width:1px; border-color:rgb(248, 244, 244);color:  rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                        Our Person</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let followup of FollowUpData let i = index" style="border-width:1px; border-color:black;font-size:20px;">
+                    <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">{{  (p - 1) + (i+1)}}
+                    </td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{followup.date}}</td>
+                    <!-- <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;"><i class="fas fa-eye action-icon"  data-toggle="modal" data-target="#myModalImage" (click)="ViewImage(abd)"></i></td> -->
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{followup.time}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:14px;">
+                        {{followup.customerName}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{followup.invoiceNumber}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{followup.machineNumber}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: right;font-size:14px;">
+                        {{followup.modelName}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">
+                        {{followup.paymentsList}}</td>
+                    <td style="border-width:1px; border-color:black;text-align: left;font-size:14px;">
+                        {{followup.remarks}}</td>
+
+                    <td style="border-width:1px; border-color:black;text-align: center;font-size:14px;">
+                        {{followup.ourPerson}}</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+    </div>
+    <br />
+</div>
+
+<div *ngIf="invoicedetails" style="text-align: center;">
+    <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcelint()">Export to Excel &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+    <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button> </div>
+
+<div *ngIf="followupdetails" style="text-align: center;">
+    <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcelintfo()">Export to Excel &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+    <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button> </div>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalFollowup" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title custom-title">Machine Follow-Up</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 row">
+                        <div class="form-horizontal container">
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Date:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followupdate" name="followupdate" [(ngModel)]="followupdate" readonly/>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Time:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followuptime" name="followuptime" [(ngModel)]="followuptime" readonly />
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Contact Person:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followupcontactperson" name="followupcontactperson" [(ngModel)]="followupcontactperson" readonly />
+                                </div>
+                            </div>
+                            <br />
+
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Our Person:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followupourperson" name="followupourperson" [(ngModel)]="followupourperson" readonly />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Due Amount:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followupdueamount" name="followupdueamount" [(ngModel)]="followupdueamount" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Updated Amount:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followupupdatedamount" name="followupupdatedamount" [(ngModel)]="followupupdatedamount" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Remarks:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="followupremarks" name="followupremarks" [(ngModel)]="followupremarks" />
+                                </div>
+                            </div>
+                            <br />
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: rgb(141, 132, 7);color: white;">Close</button>
+
+                    <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color: rgb(27, 9, 129);" (click)="SaveFollowUp()">Save Follow-Up</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

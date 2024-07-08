@@ -1,0 +1,440 @@
+<style>
+    .content {
+        max-width: 1440px;
+        margin: auto;
+    }
+</style>
+<div class="content">
+    <link href="https://fonts.googleapis.com/css?family=Calibri&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <title>Document</title>
+    <div class="v105_40" style="width: 1440px; height: 1024px; background: rgba(255,255,255,1); opacity: 1;position: relative; overflow: hidden;">
+        <div class="v204_430" style="background-image: url('assets/images/v204_430.png');">
+            <div class="v144_12"></div>
+            <div class="v144_13"></div>
+        </div>
+        
+        <div class="v124_7073" style="background-image: url('assets/images/v124_7073.png');">
+            <div class="v124_7074" style="background-image: url('assets/images/v124_7074.png')"></div>
+        </div>
+        <div class="v123_7060" style="background-image: url('assets/images/v123_7060.png');">
+            <div class="v123_7061" style="background-image: url('assets/images/v123_7061.png');"></div>
+        </div>
+        <div class="v105_81"></div>
+        <div class="v105_16"></div><span class="v105_11">
+            <ng-select [items]="customerList" [bindLabel]="'companyName'" [(ngModel)]="selectedCustomer"
+            (change)="onSelectCustomer($event)">
+        <ng-option value="" disabled>Select Customer</ng-option>
+        </ng-select></span>
+        <div class="v105_27"></div>
+        <div class="v172_58" style="background-image: url('assets/images/v172_58.png');"><span class="v105_29">Number</span>
+            <div class="v105_30">
+                <input class="form-control" type="number" name="machineNumber" [(ngModel)]="machineNumber" placeholder="Machine No" (change)="onChangeMachineNo()">
+            </div>
+        </div>
+        <div class="v172_57" style="background-image: url('assets/images/v172_57.png');"><span class="v144_10">Street</span>
+            <div class="v144_11"> {{addressOne}}</div>
+        </div>
+        <div class="v172_56" style="background-image: url('assets/images/v172_56.png');"><span class="v105_31">Locality</span>
+            <div class="v105_32">{{addressTwo}}, {{addressThree}}</div>
+        </div>
+        <div class="v172_55" style="background-image: url('assets/images/v172_55.png');"><span class="v105_186">GSTIN</span>
+            <div class="v105_198">{{gstin}}</div>
+        </div>
+        <div class="v172_50" style="background-image: url('assets/images/v172_50.png');"><span class="v105_33">City</span>
+            <div class="v105_246"></div>
+            <div class="v105_94"></div><span class="v105_86">{{city}}</span><span class="v105_292">Cluster</span>
+            <div class="v105_291"></div>
+            <div class="v105_293"></div><span class="v105_294">{{cluster}}</span>
+        </div>
+        <div class="v172_51" style="background-image: url('assets/images/v172_51.png');"><span class="v105_278">State</span>
+            <div class="v105_277"></div>
+            <div class="v105_279"></div><span class="v105_280">{{state}}</span><span class="v105_297">Zone</span>
+            <div class="v105_296"></div>
+            <div class="v105_298"></div><span class="v105_299">{{zone}}</span>
+        </div>
+        <div class="v172_52" style="background-image: url('assets/images/v172_52.png');">
+            <div class="v105_282">{{pincode}}</div><span class="v105_283">Pin</span>
+            <div class="v105_310"></div>
+            <div class="v105_312"></div><span class="v105_313">{{routeNo}}</span><span class="v105_301">Route</span>
+        </div><span class="v105_189">Working Hrs</span>
+        <div class="v105_202"></div>
+        <div class="v105_333"></div><span class="v105_204">{{workingStart}}</span><span class="v105_334">{{workingEnd}}</span>
+        <div class="v105_206"></div>
+        <div class="v105_335"></div><span class="v172_60">Security Reqd</span>
+        <div class="v172_61"></div><span class="v172_63">{{securityFormalities}}</span>
+        <div class="v172_65"></div><span class="v105_191">Weekly off</span>
+        <div class="v105_336"></div>
+        <div class="v105_337"></div><span class="v105_338">{{weeklyOff}}</span><span class="v105_339">{{weeklyOff}}</span>
+        <div class="v105_340"></div>
+        <div class="v105_341"></div>
+        <div class="v144_16"></div>
+        <div class="v144_18"></div>
+        <div class="v144_63"></div>
+        <div class="v144_17"></div>
+        <div class="v144_19"></div>
+        <div class="v144_64"></div>
+        <div class="v125_7219" data-toggle="modal"
+        data-target="#myModalFollowup" (click)="Done()" style="background-image: url('assets/images/v125_7219.png');">
+            <div class="v125_7220" style="background-image: url('assets/images/v125_7220.png');">
+                <div class="v125_7221" style="background-image: url('assets/images/v125_7221.png');">
+                    <div class="v125_7222"></div>
+                </div>
+            </div><span class="v125_7223">Done / Close Ticket</span>
+        </div>
+     
+        <div class="v125_7242" (click)="saveRequest()" style="background-image: url('assets/images/v125_7242.png');">
+            <div class="v125_7243" style="background-image: url('assets/images/v125_7243.png');">
+                <div class="v125_7244" style="background-image: url('assets/images/v125_7244.png');">
+                    <div class="v125_7245"></div>
+                </div>
+            </div><span class="v125_7246">To Workfront</span>
+        </div><span class="v124_7091">Date:</span><span class="v144_20">Time</span><span class="v144_65">Ticket
+            No.</span><span class="v124_7094"><input style="width: 100%;" type="date" [(ngModel)]="value"></span>
+            <span class="v144_21">{{ systemTime | async | date: 'HH:mm' }}</span><span
+            class="v144_66">
+            <p *ngIf="ticketNo != null"><b>{{ticketNo}}</b></p>
+            <p *ngIf="ticketNo == null"><b>{{newTicketNo}}</b></p> </span>
+        <div class="v1_4"></div><span class="v1_35">{{userName}}</span>
+        <div class="v204_485" style="background-image: url('assets/images/v204_485.png');">
+            <div class="v124_7083">
+                <div class="col-md-12" style="margin-top: 175px;">
+                    <table class="table table-bordered table-with-bold-lines">
+                        <tr>
+                            
+                            <td style="width: 9%;">{{value | date:'dd MMM yyyy'}}</td>
+                            <td style="width: 5%;">{{valuetime | date:'HH:mm:ss' }}</td>
+                            <td style="width: 5%;">{{endTime | date:'HH:mm:ss' }}</td>
+                            <td style="width: 5%;">{{userName}}</td>
+                            <td style="width: 11%;">{{contactName}}</td>
+                            <td style="width: 20%;">
+                                <h6>Fault/Issue</h6><textarea style="height: 30px;" type="text" name="fault" [(ngModel)]="fault"
+                                    class="form-control"></textarea>
+                            </td>
+                            <td style="width: 19%;">
+                                <h6>Resolution</h6><textarea style="height: 30px;" type="text" name="resolution" [(ngModel)]="Resolution"
+                                    class="form-control"></textarea>
+                            </td>
+                            <td style="z-index:9999;">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-6">
+                                        <label for="unit"><strong>Tele Support:</strong></label>
+                                        <ng-select [items]="teleSupportrequestslist" name="requestsName"
+                                            [(ngModel)]="selectedrequestt" [multiple]="true" placeholder="Select Options"
+                                            (change)="onSelectRequest()">
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="unit"><strong>Field Visit:</strong></label>
+                                        <ng-select [items]="fieldVisitRequestslist" name="requestsName"
+                                            [(ngModel)]="selectedrequestf" [multiple]="true" placeholder="Select Options"
+                                            (change)="onSelectRequest()">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="v124_7084"></div>
+            <div class="v125_7211"></div>
+            <!-- <div class="v171_39"></div> -->
+            <!-- <table class="table table-bordered table-with-bold-lines">
+                <tr class="sticky-header" style="text-align: center;">
+                    <th style="width: 2%;">SN</th>
+                    <th style="width: 5%;">Date</th>
+                    <th style="width: 5%;">Start Time</th>
+                    <th style="width: 5%;">End Time</th>
+                    <th style="width: 5%;">Log by</th>
+                    <th style="width: 12%;">Cust Call From</th>
+                    <th>Fault/Issue</th>
+                    <th>Resolution</th>
+                    <th>Entered Priority</th>
+                </tr>
+                <tr *ngFor="let ticket of ticketDetailsList; let i = index">
+                    <td>{{(i+1)}}</td>
+                    <td style="width: 5%;">{{ticket.createdOn | date:'dd MMM yyyy'}}</td>
+                    <td style="width: 5%;">{{ticket.startTime | date:'HH:mm:ss' }}</td>
+                    <td style="width: 5%;">{{ticket.endTime | date:'HH:mm:ss' }}</td>
+                    <td>{{ticket.createdBy}}</td>
+                    <td>{{ticket.callFrom}}</td>
+                    <td>{{ticket.remarks}}</td>
+                    <td>{{ticket.resolution}}</td>
+                    <td>{{ticket.requestFor}}</td>
+                </tr>
+            </table> -->
+           
+            <div class="v125_7202"></div>
+        </div><span class="v124_7191">Sl. </span><span class="v144_74">
+            <div *ngFor="let ticket of ticketDetailsList; let i = index">{{i+1}}</div>
+           </span><span class="v125_7206">Customer Name</span><span class="v125_7214">
+            <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.callFrom}}</div>
+         
+        </span><span class="v124_7193">Date</span><span class="v124_7194">
+            <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.createdOn | date:'dd MMM yyyy'}}</div>
+                </span><span class="v125_7207">Fault / Issue</span><span class="v125_7215">
+                <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.remarks}}</div>
+
+               </span><span class="v125_7208">Resolution</span><span class="v125_7216">
+                <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.resolution}}</div>
+
+               </span><span class="v124_7195">Start Time</span><span class="v124_7196">
+                <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.startTime | date:'HH:mm:ss' }}</div>
+               
+        </span><span class="v124_7197">End Time</span><span class="v124_7198">
+                <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.endTime | date:'HH:mm:ss' }}</div>
+        </span>
+        <div class="v144_69">
+            <div *ngIf="machineSelected" class="col-md-12" style="overflow: auto; margin-top: 171px;">
+                <table class="table table-bordered table-with-bold-lines">
+                    <!-- <tr>
+                        <td style="text-align: center; padding: 0px;" colspan="6">
+                            <h5>Add Contact Persons</h5>
+                        </td>
+                    </tr> -->
+                    <tr class="sticky-header" style="text-align: center;">
+                        <!-- <th style="width: 5%;"><input placeholder="Sal" class="form-control" type="text"
+                                id="salute" name="salute" [(ngModel)]="salute" required></th> -->
+                        <th style="width: 20%;"><input placeholder="Name" class="form-control" type="text"
+                                id="contactname" name="contactname" [(ngModel)]="contactname" required></th>
+                        <th style="width: 13%;"><input placeholder="Mobile" class="form-control" id="mobile"
+                                name="mobile" [(ngModel)]="mobile" required></th>
+                        <th style="width: 40%;"><input placeholder="Email" class="form-control" id="email"
+                                name="email" [(ngModel)]="email" required></th>
+                        <th style="width: 30%;"> <input placeholder="Designation" class="form-control"
+                                id="designation" name="designation" [(ngModel)]="designation" required></th>
+                        <th style="width: 5%;"><button class="form-control" type="submit"
+                                class="btn btn-primary" (click)="addContactDetails()">Add</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="v144_71"></div>
+        
+        <div class="v144_70"></div>
+        <!-- <table class="table table-bordered table-with-bold-lines">
+                <tr>
+                    <td style="text-align: center; padding: 0px;" colspan="6">
+                        <h4>Contact Persons</h4>
+                    </td>
+                </tr>
+                <tr class="sticky-header" style="text-align: center;">
+                    <th style="width: 5%;">SNo</th>
+                    <th>Sal</th>
+                    <th>Name</th>
+                    <th style="width: 20%;">Mobile</th>
+                    <th style="width: 37%;">Email</th>
+                    <th>Designation</th>
+                </tr>
+                <tr *ngFor="let details of contactDetails; let i = index"
+                    [style.background-color]="isSelectedRow(details.id) ? 'lightblue' : 'white'">
+                    <td style="cursor: pointer;text-align: right;" (click)="onClickRow(details)"
+                        class="hover-text">{{(i+1)}}</td>
+                    <td style="text-align: left;">{{details.salute}}</td>
+                    <td style="text-align: left;">{{details.contactName}}</td>
+                    <td style="text-align: right;">{{details.mobile}}</td>
+                    <td style="text-align: left;">{{details.email}}</td>
+                    <td style="text-align: left;">{{details.designation}}</td>
+                </tr>
+            </table> -->
+        <div class="v144_72"></div><span class="v144_73">Sl. </span><span class="v144_74">
+            <div *ngFor="let details of contactDetails; let i = index"
+            [style.background-color]="isSelectedRow(details.id) ? 'lightblue' : 'white'"
+            (click)="onClickRow(details)">{{i+1}}</div>
+           </span><span class="v144_75">Designation</span><span class="v144_76">
+            <div *ngFor="let details of contactDetails; let i = index">{{details.designation}}</div>
+        </span><span class="v144_81">Name</span><span class="v144_82">
+            <div *ngFor="let details of contactDetails; let i = index">{{details.contactName}}</div>
+          
+        </span><span class="v144_85">Mobile</span><span class="v144_86">
+            <div *ngFor="let details of contactDetails; let i = index">{{details.mobile}}</div>
+        </span><span class="v144_89">Email</span><span class="v124_7192">
+            </span>
+            <span class="v144_90"><div *ngFor="let details of contactDetails; let i = index">{{details.email}}</div></span>
+            <span class="v125_7209">Priority</span><span
+            class="v125_7217">
+            <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.requestFor}}</div></span><span class="v125_7199">Log by</span><span class="v125_7200">
+                <div *ngFor="let ticket of ticketDetailsList; let i = index">{{ticket.createdBy}}</div>
+            </span><span class="v105_2">Call Entry - Ticket</span>
+        <div class="v144_102" style="background-image: url('assets/images/v144_102.png');">
+            <div class="v144_103" style="background-image: url('assets/images/v144_103.png');"></div>
+        </div>
+        <div class="v144_104" style="background-image: url('assets/images/v144_104.png');">
+            <div class="v144_105" style="background-image: url('assets/images/v144_105.png');"></div>
+        </div>
+        <div class="v144_106"></div>
+        <div class="v144_107"></div>
+        <div class="v144_113"></div>
+         <!-- <table class="table table-bordered table-with-bold-lines">
+            <tr style="text-align: center;">
+                <th style="width: 1%;">SNo</th>
+                <th style="width: 1%;">Select</th>
+                <th style="width: 5%;">Ticket No.</th>
+                <th style="width: 3%;">M/c no</th>
+                <th style="width: 3%;">Model</th>
+                <th style="width: 7%;">Status</th>
+                <th style="width: 4%;">Start Dt</th>
+                <th style="width: 4%;">End Dt</th>
+                <th style="width: 3%;">Inv No</th>
+                <th style="width: 4%;">Inv Dt</th>
+                <th style="width: 4%;">Inv Value</th>
+            </tr>
+            <tr *ngFor="let machine of MachineTicketList ;  let i = index"
+                [style.background-color]="isRowSelected(machine.machineNumber) ? 'lightblue' : 'white'">
+                <td style="text-align: right;">{{(i+1)}}</td>
+                <td class="hover-text" (click)="onRowClick(machine)" style="cursor: pointer;"></td>
+                <td style="text-align: right;">{{machine.tokenNo}}</td>
+                <td style="text-align: right;">{{machine.machineNumber}}</td>
+                <td>{{machine.modelName}}</td>
+                <td>{{machine.invoicePerticular}}</td>
+                <td>{{machine.warrantyFrom | date}}</td>
+                <td>{{machine.warrantyTill | date}}</td>
+                <td style="text-align: right;">{{machine.invoiceNumber}}</td>
+                <td style="text-align: right;">{{machine.invoiceDate | date}}</td>
+                <td style="text-align: right;">{{machine.invoiceAmount}}</td>
+            </tr>
+        </table> -->
+        <div style="overflow-y: auto;max-height: 200px;">
+            <div class="v144_114"></div><span class="v144_115">Sl. </span><span class="v144_116">
+                <div *ngFor="let machine of MachineTicketList ;  let i = index">{{i+1}}</div>
+            </span><span class="v144_119">Ticket No.</span><span class="v144_120">
+                <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.tokenNo}}</div>
+    </span><span class="v144_121">M/C No.</span><span class="v144_122">
+                    <div *ngFor="let machine of MachineTicketList ;  let i = index"
+                     [style.background-color]="isRowSelected(machine.machineNumber) ? 'lightblue' : 'white'"
+                      (click)="onRowClick(machine)" >{{machine.machineNumber}}</div>
+    </span><span class="v144_125">Model</span><span class="v144_126">
+                    <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.modelName}}</div>
+    </span><span class="v144_127">Status</span><span class="v144_128">
+                    <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.invoicePerticular}}</div>
+    </span><span class="v144_129">Start Dt</span><span class="v144_130">
+                    <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.warrantyFrom | date}}</div>
+    </span>
+            <div class="v205_489" style="background-image: url('assets/images/v205_489.png');"></div>
+            <span class="v144_132">End Dt</span><span class="v144_133">
+                <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.warrantyTill | date}}</div>
+    </span><span class="v144_134">Inv No</span><span class="v144_135">
+                    <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.invoiceNumber}}</div>
+    </span><span class="v144_136">Inv Dt</span><span class="v144_137">
+        <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.invoiceDate | date}}</div>
+    </span><span class="v144_208">Inv Value</span><span class="v144_209">
+                    <div *ngFor="let machine of MachineTicketList ;  let i = index">{{machine.invoiceAmount}}</div>
+    </span>
+        </div>
+        
+        <div class="v171_2"></div>
+        <div class="v152_11" style="background-image: url('assets/images/v152_11.png');"></div>
+        <div class="v171_26"></div>
+        <div class="v171_27"></div>
+        <div class="v204_431" style="background-image: url('assets/images/v204_431.png');">
+            <div class="v171_48" style="background-image: url('assets/images/v171_48.png');">
+                <div class="v152_3" style="background-image: url('assets/images/v152_3.png');"></div><span class="v156_14">Login Screen</span>
+            </div>
+            <div class="v171_45" style="background-image: url('assets/images/v171_45.png');"><span class="v156_46">Trip Sheet</span>
+                <div class="v152_7" style="background-image: url('assets/images/v152_7.png');" (click)="goToTripSheet()"></div>
+            </div>
+            <div class="v171_46" style="background-image: url('assets/images/v171_46.png');"><span class="v156_45">WF Field</span>
+                <div class="v152_6" (click)="goToWorkFront()" style="background-image: url('assets/images/v152_6');"></div>
+                <div class="v156_15" (click)="goToWorkFront()"></div>
+                <div class="v156_39" (click)="goToWorkFront()" style="background-image: url('assets/images/v156_39.png');"></div>
+            </div>
+            <div class="v171_47" style="background-image: url('assets/images/v171_47.png');"><span class="v156_43">WF Tele</span>
+                <div class="v152_5" style="background-image: url('assets/images/v152_5.png');"></div>
+                <div class="v156_40"></div>
+                <div class="v156_42" style="background-image: url('assets/images/v156_42.png');"></div>
+            </div>
+            <div class="v171_49" style="background-image: url('assets/images/v171_49.png');"><span class="v171_32">Customer List</span>
+                <div class="v171_33" style="background-image: url('assets/images/v171_33.png');" (click)="goToCustomerList()"></div>
+                <div class="v171_35" (click)="goToCustomerList()"></div>
+                <div class="v171_34" style="background-image: url('assets/images/v171_34.png');" (click)="goToCustomerList()"></div>
+            </div>
+        </div>
+        <div class="v171_36"></div>
+        <div class="v171_37"></div>
+        <div class="v171_38"></div>
+        <div class="v171_41"></div>
+        <div class="v171_43"></div>
+        <div class="v205_487" style="background-image: url('assets/images/v205_487.png');"></div>
+    </div>
+</div><br><br><br>
+<div class="container">
+    <div class="modal fade" id="myModalFollowup" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title custom-title">Clear the Ticket number - {{ticketNo}} </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 row">
+                        <div class="col-md-5">
+                            <label for="unit"><b>Customer Name :</b>
+                                {{companyName}}</label>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="unit"><b>Machine Number :</b>
+                                {{selectedMachine}}</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="unit"><b>Model:</b>
+                                {{modelName}}</label>
+                        </div>
+                    </div><br>
+                    <div class="col-md-12 row">
+                        <div class="col-md-5">
+                            <label for="unit"><b>Region :</b>
+                                {{region}}</label>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="unit"><b>Zone :</b> {{zone}}</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="unit"><b>RequestFor:</b>
+                                {{requestForName}}</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-5">
+                            <label for="unit"><b>Remarks :</b>
+                                {{fault}}</label>
+                        </div>
+                    </div><br>
+                    <div class="col-md-12 row">
+                        <div class="col-md-5">
+                            <label for="unit" style="width: 90%;"><b>Date Of
+                                    Interaction:</b></label>
+                            <input type="date" name="dateOfInteraction" [(ngModel)]="dateofinteraction"
+                                class="form-control" placeholder="Select Interacted Date">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="unit"><b>Attended <br>By
+                                    :</b></label>
+                            <select (change)="onSelectAttendedBy($event)" class="form-control">
+                                <option value="">Select Person</option>
+                                <option *ngFor="let users of usersList" value={{users.id}}>
+                                    {{users.userName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="unit"><b>Attended How:</b></label>
+                            <select (change)="onSelectAttendedHow($event)" class="form-control" style="width: 100px;">
+                                <!-- Adjust the width value as needed -->
+                                <option value="">Select Type Of Interaction
+                                </option>
+                                <option *ngFor="let attendtype of attendtypelist" [value]="attendtype.attendTypeId">
+                                    {{attendtype.attendTypeName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div><br><br>
+                </div>
+                <div class="modal-footer" style="display: flex; justify-content: center; align-items: center;">
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        style="background-color: rgb(27, 9, 129);" (click)="savedoneDetails()">DONE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

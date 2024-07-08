@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="assets/logo.png" style="height: 56.13px;width: 56.13px;" alt="">&nbsp;&nbsp;
+    <a class="navbar-brand" href="#">CUSTOMER MANAGER</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="IsLoggedIn" class="nav-item active">
+                <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+            </li>
+            <!-- <li *ngIf="IsLoggedIn" class="nav-item active">
+                <a class="nav-link" [routerLink]="['/request&interaction']">Request Form</a>
+            </li> -->
+            <!-- <li *ngIf="IsLoggedIn" class="nav-item active">
+                <a class="nav-link" [routerLink]="['/invoice&followup']">Invoice & Follow-up</a>
+            </li> -->
+            <li *ngIf="IsLoggedIn" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Registrations
+          </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/userList']">Users List</a>
+                    <a class="dropdown-item" [routerLink]="['/customerLists']">Customer List</a>
+                    <a class="dropdown-item" [routerLink]="['/machineLists']">Machines List</a>
+                    <a class="dropdown-item" [routerLink]="['/userRegistration']">User Registartion</a>
+                    <a class="dropdown-item" [routerLink]="['/newcustomerregistration']">Customer Registration</a>
+                    <a class="dropdown-item" [routerLink]="['/newmachineregistaration']">Machine Registartion</a>
+                </div>
+            </li>
+            <li *ngIf="IsLoggedIn" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Masters
+          </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/roleMaster']">Role Master</a>
+                    <!-- <a class="dropdown-item" [routerLink]="['/cityMaster']">City Master</a> -->
+                    <a class="dropdown-item" [routerLink]="['/clusterMaster']">Cluster Master</a>
+                    <!-- <a class="dropdown-item" [routerLink]="['/countryMaster']">Country Master</a> -->
+                    <a class="dropdown-item" [routerLink]="['/regionMaster']">Region Master</a>
+                    <a class="dropdown-item" [routerLink]="['/routeNumberMaster']">Route Number Master</a>
+                    <!-- <a class="dropdown-item" [routerLink]="['/stateMaster']">State Master</a> -->
+                    <a class="dropdown-item" [routerLink]="['/zoneMaster']">Zone Master</a>
+                    <a class="dropdown-item" [routerLink]="['/modelMaster']">Model Master</a>
+                    <a class="dropdown-item" [routerLink]="['/featuresMaster']">Features Master</a>
+                    <a class="dropdown-item" [routerLink]="['/invoiceParticulars']">Invoice Particulars Master</a>
+                    <a class="dropdown-item" [routerLink]="['/requestsMasters']">Requests Master</a>
+                    <a class="dropdown-item" [routerLink]="['/attendTypeMaster']">Type Of Attend Master</a>
+                    <a class="dropdown-item" [routerLink]="['/s&s']">S & S Master</a>
+                    <a class="dropdown-item" [routerLink]="['/faultsMaster']">Faults Master</a>
+                    <a class="dropdown-item" [routerLink]="['/consumablesMaster']">Consumables Master</a>
+
+                    <a class="dropdown-item" [routerLink]="['/quotationtemplate']">Quotation template Master</a>
+                    <a class="dropdown-item" [routerLink]="['/brochure']">Brochure Master</a>
+                    <a class="dropdown-item" [routerLink]="['/mailquotationtemplate']">Mail quotation Master</a>
+                    
+                    <a class="dropdown-item" [routerLink]="['/DocumentType']">DocumentType Master</a>
+                    <a class="dropdown-item" [routerLink]="['/ModeofTransport']">ModeofTransport Master</a>
+                    <a class="dropdown-item" [routerLink]="['/Template']"> document Template Master</a>
+                    <a class="dropdown-item" [routerLink]="['/DocumentMailTemplate']">DocumentMailTemplate quotation Master</a>
+                 
+                    <a class="dropdown-item" [routerLink]="['/purposeMaster']">Purpose-Est. Job Time Mster</a>
+
+                </div>
+            </li>
+            <li *ngIf="IsLoggedIn" class="nav-item active">
+                <a class="nav-link">{{userName | toUpper}}</a>
+            </li>
+            <li *ngIf="IsLoggedIn" class="nav-item active">
+                <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+            <li *ngIf="!IsLoggedIn" class="nav-item active">
+                <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>

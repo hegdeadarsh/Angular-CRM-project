@@ -1,0 +1,195 @@
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> -->
+<br>
+<div class="col-md-12 row">
+  <div class="col-md-5">
+    <h4>Trip ID: {{TravelId}}</h4>
+  </div>
+  <div class="col-md-2">
+    <h2><strong>Travel Budget</strong></h2>
+
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-2">
+    <button class="btn btn-primary" (click)="goToTripSheet()">Trip Sheet</button>
+  </div>
+  <div class="col-md-2">
+    <p><b>Date: <strong>{{value | date}}</strong></b></p>
+  </div>
+</div>
+<div class="col-md-12 row">
+  <div class="table">
+    <table class="table table-bordered table-hover table-with-bold-lines" #table id="tableId">
+
+      <tr>
+        <th></th>
+        <th>CNG</th>
+        <th>
+          <div class="row">
+            <div class="col-md-6"><input [(ngModel)]="cng" type="text" class="form-control" placeholder="Enter"></div>
+            <br>
+            <div class="col-md-6">Rs/Kg</div>
+          </div>
+        </th>
+        <th></th>
+        <th>Mileage</th>
+        <th><input [(ngModel)]="mileage" type="text" class="form-control" placeholder="Enter"></th>
+        <th>Kms/Kg</th>
+        <th></th>
+        <th colspan="3">CNG Filled Previously</th>
+        <th><input [(ngModel)]="cngPrev" type="text" class="form-control" placeholder="Enter"></th>
+      </tr>
+      <tr>
+        <th>Sn</th>
+        <th>M/c No</th>
+        <th>Customer Name</th>
+        <th>Purpose</th>
+        <th>Cluster Location</th>
+        <th>Est. Inter Distance</th>
+        <th>Est. Cumulative Distance</th>
+        <th>Actual ODO Reading</th>
+        <th>Est. Travel Time</th>
+        <th>Est. Time for Job</th>
+
+        <th>Schd ETD</th>
+
+        <th>Actual Time</th>
+        <!-- <th>Travel ID</th> -->
+        <th></th>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td><input class="form-control" type="text" id="machineNumber" name="machineNumber"
+            (change)="onChangeMachineNumber()" [(ngModel)]="machineNumber" placeholder="Enter" required></td>
+        <td><ng-select [items]="customerList" [bindLabel]="'companyName'" [(ngModel)]="selectedCustomer"
+            (change)="onSelectCompany($event)">
+            <ng-option value="" disabled>Select Customer</ng-option>
+          </ng-select></td>
+        <td><input [(ngModel)]="purpose" type="text" class="form-control" placeholder="Enter"></td>
+
+      
+        <td><input [(ngModel)]="clusterLoc" type="text" class="form-control" placeholder="Enter"></td>
+
+        <td><input [(ngModel)]="interDist" type="text" class="form-control" placeholder="Enter"></td>
+
+        
+
+
+        <td><input [(ngModel)]="actualODORead" type="text" class="form-control" placeholder="Enter"></td>
+
+
+        <td>
+          <p *ngIf="showestTravelTimeInputs"><input type="time" [(ngModel)]="estTravelTime"  (change)="estTravelTimeInputs()" /></p>
+        </td>
+        <td>
+          <p *ngIf="showestTimeInputs"><input type="time" [(ngModel)]="estTimeForJob" (change)="estTimeInputs()" /></p>
+        </td>
+
+
+        <td><input [(ngModel)]="schd" type="time" class="form-control" placeholder="Enter"></td>
+
+        <td><input [(ngModel)]="actualTime" type="time" class="form-control" placeholder="Enter"></td>
+
+
+
+        <!-- <td><input style="text-align: right;" type="text" name="Machine" [(ngModel)]="TravelId"
+              class="form-control" readonly></td> -->
+        <td><button class="btn btn-primary" (click)="save()">Save Data</button></td>
+      </tr>
+      <tr *ngFor="let row of budgetList ,  let item of budgetListdist | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index"  >
+      
+        <td>{{10 * (p-1)+(i+1)}}</td>
+        <td>{{row.machineNumber}}</td>
+        <td>{{row.customerName}}</td>
+        <td>{{row.purpose}}</td>
+        <td>{{row.clusterLocation}}</td>
+        
+      
+        <td> {{ item.estInterDistance }}</td>
+        <td> {{ item.estCompanyDistance }}</td>
+        
+     
+        <td>{{row.actualODOReading}}</td>
+        <td>{{row.estTravelTime|date: 'HH:mm'}}</td>
+        <td>{{row.estTimeForJob|date: 'HH:mm'}}</td>
+        <td>{{row.schdETD|date: 'HH:mm'}}</td>
+        <td>{{row.actualTime|date: 'HH:mm'}}</td>
+        <td>{{10 * (p-1)+(i+1)}}</td>
+
+        <td></td>
+      </tr>
+
+    
+     
+      <tr>
+        <td colspan="6" style="text-align: right;">
+          <span class="text-center">  Last Cumulated Distance</span>
+        </td>
+        <td colspan="1">{{ totalDistance }}
+    
+        </tr>
+    
+
+
+      
+    
+
+<!-- Add this input field for estInterDistance in your HTML -->
+<!-- <tr *ngFor="let item of budgetList; let i = index">
+  <!-- Other columns -->
+  <!-- <td>
+    <input type="number" [(ngModel)]="item.estInterDistance" (change)="updateEstCompanyDistance(i)">
+  </td>
+  <!-- Other columns -->
+<!-- //</tr> --> --> -->
+
+
+<!-- Assuming budgetListdist is an array of objects with estInterDistance and estCompanyDistance properties -->
+
+
+      <tr>
+        <td colspan="10" style="text-align: right;">
+          <span class="text-center">Total time</span>
+        </td>
+        <td colspan="4">{{displayCalculatedTime|date:'HH:mm'}}</td>
+      </tr>
+
+      <!-- ... (existing HTML code) ... -->
+
+
+      <tr>
+        <td colspan="3" rowspan="3"></td>
+
+        <th>Budget Travel Kms</th>
+        <td><input type="text" class="form-control"  [(ngModel)]="totalDistance /  mileage"></td>
+        <td colspan="4" rowspan="3"></td>
+        <td colspan="3"><h4 style="text-align: center;">Food Expense</h4></td>
+      </tr>
+      <tr>
+        <th>Budget CNG read</th>
+        <td><input type="text" class="form-control" [(ngModel)]="totalDistance /  mileage *cng "></td>
+        <th>Rs./Person</th>
+        <th>No. of Persons</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <th>Budget Amount reqd</th>
+        <td><input type="text" class="form-control" [(ngModel)]="totalDistance /  mileage *cng + rupees * person"  ></td>
+        <td><input type="number" class="form-control" placeholder="Enter" [(ngModel)]="rupees"></td>
+        <td><input type="number" class="form-control" placeholder="Enter" [(ngModel)]="person"></td>
+        <td><input type="number" class="form-control" [(ngModel)]="rupees * person"></td>
+
+      </tr>
+
+     
+    </table>
+    <!-- <pagination-controls (pageChange)="p = $event" class="custom-pagination" style="float: right"></pagination-controls> -->
+  </div>
+</div>
+<br>
+<div style="text-align: center;">
+  <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel
+    &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+  <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to
+    PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>
+</div>

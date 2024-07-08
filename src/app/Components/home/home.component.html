@@ -1,0 +1,31 @@
+<section class="hero">
+    <div class="hero-content">
+        <h2>Welcome to Customer Manager</h2>
+        <p>A powerful tool to manage your customers and requests.</p>
+        <a *ngIf="!IsLoggedIn" [routerLink]="['/login']" class="btn btn-primary">Login</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <i class="fas fa-users"></i>
+        <h3>Manage Customers</h3>
+        <p>Efficiently store and organize customer requests.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-shopping-cart"></i>
+        <h3>Track requests</h3>
+        <p>Keep track of customer requests and interaction status.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-chart-line"></i>
+        <h3>Invoices & Follow-up</h3>
+        <p>Upload invoices and follow-up with customers.</p>
+    </div>
+</section>
+
+<div class="hero">
+    <div class="hero-content">
+        <img class="companylogo" src="assets/CTPLlogo.png" alt="">
+    </div>
+</div>

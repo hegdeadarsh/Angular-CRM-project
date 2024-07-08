@@ -1,0 +1,113 @@
+
+<div>&nbsp;</div>
+<div class="container">
+    <h2 class="text-center">Registered Users List</h2>
+</div><br>
+<div class="col-md-12">
+    
+    <div class="table-responsive" style="max-height: 800px; overflow-y: auto;">
+        <table #table id="tableId" class="table table-bordered" style="border-width: 1px; border-color: black; font-size: 50px; padding: 5px; margin: 0 auto;">
+            <thead>
+                <tr style="border-width: 1px; border-color: black; font-size: 12px; line-height: 1.5;">
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 3%;">SlNo.</th>
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 20%;">User Name</th>
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 20%;">Email</th>
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 15%;">Role</th>
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 20%;">Registered On</th>
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 10%;">Edit</th>
+                    <th style="border-width: 1px; border-color: rgb(248, 244, 244); color: rgb(231, 172, 94); background-color: rgb(27, 9, 129); text-align: center; width: 10%;">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let users of usersList  let i = index" style="font-size: 15px; line-height: 1.2;"> 
+                    <td style="border-width: 1px; border-color: black; text-align: right; padding: 2px;">{{10 * (p-1)+(i+1)}}</td>
+                    <td style="border-width: 1px; border-color: black; text-align: left; padding: 2px;">{{users.userName}}</td>
+                    <td style="border-width: 1px; border-color: black; text-align: left; padding: 2px;">{{users.email}}</td>
+                    <td style="border-width: 1px; border-color: black; text-align: left; padding: 2px;">{{users.roleName}}</td>
+                    <td style="border-width: 1px; border-color: black; text-align: right; padding: 2px;">{{users.createdOn | date}}</td>
+                    <td style="border-width: 1px; border-color: black; text-align: center; padding: 2px;">
+                        <button class="btn btn-secondary" data-toggle="modal" data-target="#myModalUpdate" (click)="editUser(users)">Edit</button>
+                    </td>
+                    <td style="border-width: 1px; border-color: black; text-align: center; padding: 2px;">
+                        <button class="btn btn-danger" (click)="deleteUser(users.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <div style="text-align: center;" *ngIf="exporting">
+            <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+            <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>
+        </div>
+    </div>
+    <br />
+    <div>&nbsp;</div>
+    
+</div><br><br><br>
+
+
+<div class="container">
+   
+    <!-- Modal -->
+    <div class="modal fade" id="myModalUpdate" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+           
+            <h4 class="modal-title custom-title" >Edit User Details</h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-12 row">
+                <div class="form-horizontal container">
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">UserName:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewusername" name="viewusername"
+                                [(ngModel)]="viewusername" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Email:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="viewemail" name="viewemail"
+                                [(ngModel)]="viewemail" />
+                        </div>
+                    </div>
+                    <br />
+    
+                    <div class="col-md-12 row">
+                        <label class="col-md-4" style="color:black;padding-top: 13px">Role :</label>
+                        <div class="col-md-8">
+                            <!-- <label for="companyName">Select Role:</label> -->
+                            <select (change)="onSelectRole($event)" class="form-control">
+                                <option value="">Select Role</option>
+                                <option *ngFor="let role of rolelist" value={{role.id}} [selected]="role.id === viewrole">
+                                  {{role.roleName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div><br />
+    
+                   
+                    
+                   
+                   
+    
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color: rgb(141, 132, 7);color: white;">Close</button>
+
+            <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color: rgb(27, 9, 129);"  (click)="UpdateUser()">Update User</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>

@@ -1,0 +1,128 @@
+<div>&nbsp;</div>
+<div class="container">
+    <h2 class="text-center">Mail Quotation Template Master</h2>
+    <div>&nbsp;</div>
+    <form>
+        <div class="form-group">
+            <div class="col-6 mx-auto">
+                <input type="text" class="form-control" id="mailName" name="mailname" [(ngModel)]="mailname"
+                    placeholder="Enter Mail Template Name">
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success" (click)="saveMail()">Save</button>
+        </div>
+    </form>
+</div><br><br>
+<div class="col-md-12 row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="table-responsive">
+            <table #table id="tableId" class="table table-bordered"
+                style="border-width:1px; border-color:black;font-size:20px;padding: 5px;margin: 0 auto; ">
+                <thead>
+                    <tr style="border-width:1px; border-color:black;font-size:15px;">
+                        <th
+                            style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                            SlNo.</th>
+                        <th
+                            style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                            Mail Name</th>
+                        <th
+                            style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                            Created On</th>
+                        <th
+                            style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                            Created By</th>
+                        <th
+                            style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                            Edit</th>
+
+                        <th
+                            style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                            Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let mail of maillist | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index">
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">{{5 *
+                            (p-1)+(i+1)}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">
+                            {{mail.mailName}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">
+                            {{mail.createdOn | date}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">
+                            {{mail.createdBy}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;">
+                            <button class="btn btn-secondary" data-toggle="modal" data-target="#myModalUpdate"
+                                (click)="editMail(mail)">Edit</button>
+                        </td>
+                        <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;">
+                            <button class="btn btn-danger" (click)="deletemail(mail.mailID)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div style="text-align: center;" *ngIf="exporting">
+                <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel
+                    &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+                <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export
+                    to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<br><br>
+<pagination-controls (pageChange)="p = $event" class="custom-pagination" style="float: right"></pagination-controls>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalUpdate" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title custom-title">Edit Mail Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 row">
+                        <div class="form-horizontal container">
+                            <div class="col-md-12 row">
+                                <label class="col-md-4" style="color:black;padding-top: 13px">Mail Template  Name:</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" id="viewmail" name="viewmail"
+                                        [(ngModel)]="viewmail" />
+                                </div>
+                            </div>
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        style="background-color: rgb(141, 132, 7);color: white;">Close</button>
+
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        style="background-color: rgb(27, 9, 129);" (click)="Updatemail()">Update Mail Template</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,217 @@
+<br>
+<div class="col-md-12 row">
+<div class="col-md-2">
+    <label for="tripSheetNumber">Enter Trip Sheet Number</label>
+    <input style="width: 65%;" type="number" [(ngModel)]="tripSheetNumber"><br><br>
+    <button class="btn btn-primary" (click)="loadTripDetailsByTripSheetNo()">Fetch Data</button>
+</div>
+<div class="col-md-3"></div><br>
+<div class="col-md-2" style="text-align: center;"><h2><b>TRIP SHEET</b></h2></div>
+</div>
+<div #table id="printSectionId">
+    <!-- first division -->
+    <!-- <div class="container"></div> -->
+<div class="container-fluid">
+    <!-- col-12 col-sm-6 col-lg-3 -->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <table>
+                <tr style="border: 2px solid black;">
+                    <th style="border: 2px solid black;">Vehicle</th>
+                    <td style="border: 2px solid black;"><input type="text" [(ngModel)]="vehicle" class="borderless-input" placeholder="enter"></td>
+                    <td style="border: 2px solid black;">
+                        <h6>Mileage CNG Kgs</h6>
+                    </td>
+                    <td style="border: 2px solid black;">
+                        <h6>M Petrol L</h6>
+                    </td>
+                    <td style="border: 2px solid black;">
+                        <h6>M Diesel L</h6>
+                    </td>
+                    <td style="border: 2px solid black;">
+                        <h6>Fuel Reqd Kgs</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"><input style="text-align: right;" type="text" [(ngModel)]="mileageCng" class="borderless-input" placeholder="Enter CNG mileage" (ngModelChange)="onInputChange()"></td>
+                    <td style="border: 2px solid black;"><input style="text-align: right;" type="text" [(ngModel)]="mileagePetrol" class="borderless-input" placeholder="Enter Petrol mileage" (ngModelChange)="onInputChange()"></td>
+                    <td style="border: 2px solid black;"><input style="text-align: right;" type="text" [(ngModel)]="mileageDiesel" class="borderless-input" placeholder="Enter Diesel mileage" (ngModelChange)="onInputChange()"></td>
+                    <td style="border: 2px solid black;">
+                        <input style="text-align: right;" type="text" [(ngModel)]="fuelReqd" class="borderless-input">
+                      </td>
+                </tr>
+                <tr>
+                    <th style="border: 2px solid black;">Fuel Price</th>
+                    <th style="border: 2px solid black;">(In Rupees) </th>
+                    <td style="border: 2px solid black;"><input style="text-align: right;" type="text" [(ngModel)]="FuelPriceCNG" class="borderless-input" placeholder="Enter CNG price" (ngModelChange)="onInputChange()"></td>
+                    <td style="border: 2px solid black;"><input style="text-align: right;" type="text" [(ngModel)]="FuelPricePetrol" class="borderless-input" placeholder="Enter Petrol price" (ngModelChange)="onInputChange()"></td>
+                    <td style="border: 2px solid black;"><input style="text-align: right;" type="text" [(ngModel)]="FuelPriceDiesel" class="borderless-input" placeholder="Enter Diesel price" (ngModelChange)="onInputChange()"></td>
+                    <td style="border: 2px solid black;">
+                        <input style="text-align: right;" type="text" [(ngModel)]="fuelPriceReqd" class="borderless-input">
+                      </td>
+                </tr>
+                <tr>
+                    <th style="border: 2px solid black;">Spares Reqd</th>
+                    <td style="border: 2px solid black;" colspan="5"><input style="height: 45px; width: 100%;" type="text" [(ngModel)]="sparesReqd" class="borderless-input" placeholder="Enter spares"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <div class="d-md-none d-lg-block">
+            <table class="table">
+                <tr>
+                    <td style="border: 2px solid black;">
+                       TRIP SHEET No.  <b>{{tripSheetNo}}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 2px solid black;">Engineer :&nbsp;&nbsp;&nbsp;&nbsp;<b>{{userName}}</b></td>
+                </tr>
+                <tr>
+                    <!-- <th style="border: 2px solid black;">
+                        Date
+                    </th> -->
+                    <td style="border: 2px solid black;"><strong>{{value | date:'dd MMM yyyy'}}</strong></td>
+                </tr>
+            </table>
+            </div>
+        </div><div class="col-md-1"></div>
+    </div>
+</div>
+    <br>
+    <!-- second division -->
+    <div class="col-md-12 row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <table>
+                <thead>
+                    <tr style="background-color: lavender;">
+                        <th style="border: 2px solid black;">SN</th>
+                        <th style="width: 15%;border: 2px solid black;">Customer Name</th>
+                        <th style="border: 2px solid black;">M/C No</th>
+                        <th style="width: 13%;border: 2px solid black;">Purpose</th>
+                        <th style="border: 2px solid black;">Task Class</th>
+                        <th style="border: 2px solid black;">Cluster Location</th>
+                        <th style="border: 2px solid black;">Est. Dist kms</th>
+                        <th style="border: 2px solid black;">Est. Trvl Time</th>
+                        <th style="border: 2px solid black;">Food, Fuel others</th>
+                        <th style="border: 2px solid black;">Est. Job Time </th>
+                        <th style="border: 2px solid black;">Schd ET</th>
+                        <th style="border: 2px solid black;">Actual Time</th>
+                        <th style="border: 2px solid black;">Actual ODO Read</th>
+                        <th style="border: 2px solid black;">Sequence</th>
+                    </tr>
+                </thead>
+                <tr style="background-color: #a0dd5a;">
+                    <td style="border: 2px solid black;"><strong>0</strong></td>
+                    <td style="border: 2px solid black;"><input type="text" style="width: 100%;" [(ngModel)]="startPlace" class="borderless-input" placeholder="Enter"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"><input type="text" [(ngModel)]="startCluster" class="borderless-input" placeholder="Enter cluster"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"> <input type="time" style="background-color: #ddf892;" [ngModel]="initialTime" (ngModelChange)="initialTime = $event; updateScheduleTimes()" class="borderless-input"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                </tr>
+                <ng-container *ngFor="let item of selectedData;  let i = index">
+                    <tr [ngStyle]="{'background-color': item.companyName !== '' ? '#a0dd5a' : 'yellow'}">
+                        <td rowspan="2" style="border: 2px solid black;"><strong>{{(i+1)}}</strong></td>
+                        <td rowspan="2" style="border: 2px solid black;"><strong>{{item.companyName}}</strong></td>
+                        <td rowspan="2" style="text-align: right; border: 2px solid black;"><strong>{{item.machineNumber}}</strong></td>
+                        <td rowspan="2" style="border: 2px solid black;" *ngIf="item.companyName != ''"><strong>{{item.remarks}}</strong></td>
+                        <td rowspan="2" style="border: 2px solid black;" *ngIf="item.companyName == ''"><input type="text" style="width: 100%;height: 50px;" [(ngModel)]="item.purpose" class="borderless-input" placeholder="Enter purpose"></td>
+                        <td rowspan="2" style="border: 2px solid black;"></td>
+                        <td rowspan="2" style="border: 2px solid black;"><strong>{{item.cluster}}</strong></td>
+                        <td rowspan="2" style="border: 2px solid black;" *ngIf="item.companyName != ''"></td>
+                        <td rowspan="2" style="border: 2px solid black;" *ngIf="item.companyName == ''" style="text-align: right;"><input type="number" [(ngModel)]="item.estDistanceKms" (ngModelChange)="item.estDistanceKms = $event; updateScheduleTimes()" class="borderless-input" placeholder="Enter distance"></td>
+                        <td *ngIf="item.companyName != ''" style="border: 2px solid black;"></td>
+                        <td *ngIf="item.companyName == ''" style="border: 2px solid black;"><input type="time" [(ngModel)]="item.estTravelTime" (ngModelChange)="item.estTravelTime = $event; updateScheduleTimes()" class="borderless-input"></td>
+                        <td *ngIf="item.companyName != ''" style="border: 2px solid black;"></td>
+                        <td *ngIf="item.companyName == ''" style="border: 2px solid black;"><input type="time" [(ngModel)]="item.foodFuelOthers" (ngModelChange)="item.foodFuelOthers = $event; updateScheduleTimes()" class="borderless-input"></td>
+                        <td *ngIf="item.companyName != ''" style="border: 2px solid black;"><input type="time" [(ngModel)]="item.estJobTime" (ngModelChange)="item.estJobTime = $event; updateScheduleTimes()" class="borderless-input"></td>
+                        <td *ngIf="item.companyName == ''" style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"></td>
+                        <td rowspan="2" style="border: 2px solid black; text-align: center;padding-top: 35px; background-color: lavender;"><b>{{(i+1)}}</b></td>
+                    </tr>
+                    <tr [ngStyle]="{'background-color': item.companyName !== '' ? '#a0dd5a' : 'yellow'}">
+                        <td style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"> <input type="time" style="background-color: #ddf892;" [(ngModel)]="item.schdET" class="borderless-input"></td>
+                        <td style="border: 2px solid black;"></td>
+                        <td style="border: 2px solid black;"></td>
+                    </tr>
+                </ng-container>
+                <tr style="background-color: lavender;">
+                    <td style="border: 2px solid black;"><strong>0</strong></td>
+                    <td style="border: 2px solid black;"><input type="text" style="width: 100%;" [(ngModel)]="endPlace" class="borderless-input" placeholder="Enter"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"><input type="text" [(ngModel)]="endCluster" class="borderless-input" placeholder="Enter cluster"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                    <td style="border: 2px solid black;"></td>
+                </tr>
+                <tr>
+                    <td colspan="5"></td>
+                    <th style="border: 2px solid black;">Totals</th>
+                    <td style="text-align: center;border: 2px solid black;"><strong>{{ totalEstDistKms }}</strong></td>
+                    <td style="text-align: center;border: 2px solid black;"><strong>{{formattedTotalEstTravelTime }}</strong></td>
+                    <td style="text-align: center;border: 2px solid black;"><strong>{{formattedTotalFoodFuel }}</strong></td>
+                    <td style="text-align: center;border: 2px solid black;"><strong>{{formattedTotalEstJobTime }}</strong></td>
+                    <td style="text-align: center;border: 2px solid black;"><strong>{{timeDifference }}</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="btn btn-primary" (click)="saveEditedTripDetails()">Update</button></td>
+                    <td><button class="btn btn-primary" (click)="save()">Save</button></td>
+                    <td><button class="btn btn-secondary" (click)="reSequence()">Resequence</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- <table style="width:100%">
+        <tr>
+            <th>SN</th>
+                        <th style="width: 15%;">Location</th>
+                        <th style="width: 3%;"></th>
+                        <th>M/C No</th>
+                        <th style="width: 13%;">Purpose</th>
+                        <th>Task Class</th>
+                        <th>Cluster Location</th>
+                        <th>Est. Dist kms</th>
+                        <th>Est. Trvl Time</th>
+                        <th>Food, Fuel others</th>
+                        <th>Est. Job Time </th>
+                        <th>Schd ET</th>
+                        <th>Actual Time</th>
+                        <th>Actual ODO Read</th>
+                        <th>Sequence</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Phone</th>
+            <td>555-1234</td>
+        </tr>
+        <tr>
+            <td>555-8745</td>
+        </tr>
+    </table> -->
+</div><br>
+<div style="text-align: center;">
+
+    <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="print('printSectionId')">PRINT &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>
+</div><br><br><br><br>

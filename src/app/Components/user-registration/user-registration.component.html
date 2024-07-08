@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<div>&nbsp;</div>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Registration</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Role</label>
+                        <select (change)="onSelectRole($event)" class="form-control">
+                        <option value="">Select Role</option>
+                        <option *ngFor="let role of rolelist" value={{role.id}} >
+                          {{role.roleName}}
+                        </option>
+                    </select>
+                    </div>
+                    <!-- <p>Selected Option: {{ selectedRole }}</p> -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" [(ngModel)]="confirm_password" placeholder="Confirm your password">
+                    </div>
+                    <div *ngIf='doNotPass == true' class="form-group">
+                        <label style="color: red;">Password did not match!!</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" (click)="userRegistration()">Register</button>
+                    <div class="form-group">
+                        <label style="color: red;">{{alreadyexist}}</label>
+                    </div>
+                </form>
+                <p class="text-center mt-3">Already have an account? <a [routerLink]="['/login']">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

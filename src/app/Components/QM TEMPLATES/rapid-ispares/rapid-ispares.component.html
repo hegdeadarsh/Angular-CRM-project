@@ -1,0 +1,416 @@
+
+
+<div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <div class="container" style="border: 0cap;">
+            <br> <div>
+                <label for="refIDInput"><strong> Enter Reference ID: &nbsp; </strong></label>
+                <input type="text" id="refIDInput" [(ngModel)]="RefID" placeholder="Enter Reference ID">&nbsp;
+                <button (click)="fetchTemplate()">Fetch</button>
+              </div>  <br>
+            <div class="col-md-8">
+                <p style="text-align: center; font-size: 20px;"><strong> <u> Rapid-I-SPARES Editabel </u></strong></p>
+
+                </div> 
+            <div class="col-md-12 row">
+                
+                 
+    <table style="width: 67%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+        <tr style="border: 1px solid black; height: 1px;">
+            <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableVisionQtyA:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input type="text" id="editableQty" [(ngModel)]="editableVisionQtyA" style="width: 100px; border: none;" />
+            </td>
+            <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditableVisionPriceA:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input  type="text" id="editablePrice" [(ngModel)]="editableVisionPriceA" style="width: 100px; border: none;" />
+            </td>
+        </tr>
+
+        <tr style="border: 1px solid black; height: 1px;">
+            <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableVisionQtyB:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input type="text" id="editableQty" [(ngModel)]="editableVisionQtyB" style="width: 100px; border: none;" />
+            </td>
+            <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditableVisionPriceB:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input  type="text" id="editablePrice" [(ngModel)]="editableVisionPriceB" style="width: 100px; border: none;" />
+            </td>
+        </tr>
+    </table> 
+     <div class="col-md-8 d-flex justify-content-center align-items-center"><br> <br> <br> 
+        <button class="btn btn-primary text-center" (click)="updateTemplate()">Save Changes</button>
+    </div> 
+        <div class="container" style="border: 0cap;">
+
+          
+                <div class="col-md-1"></div>
+                <div id="printsection" class="col-md-8 table-bordered"
+                    style="background-color:white;border-color:forestgreen;border-width:2px">
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-8">
+                          
+                        </div>
+                        <div class="col-md-2 logo">
+                           
+                            <img class="logo" style="width: 50%;" src="assets/Group 2CRMlogo2.png" alt="logo"> 
+                         </div>
+                         <div class="col-md-2">
+                             <p style="text-align: center; font-size: 30px;"><strong>Rapid-I-SPARES</strong></p>
+                             <input type="hidden" [(ngModel)]="TemplateName" value="Rapid-I-SPARES" />
+                             </div>
+                      
+                    </div>
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr style="border: 1px solid black; height: 25px;">
+
+
+                            <td style="width: 19%; vertical-align: top; border: 1px solid black; text-align: left;">
+                                <p style="border-bottom: 1px solid black; text-align: left;">Billing Address:</p>
+                                <p style="text-align: left;">{{billingAddress}}</p>
+                              </td>
+                          <!-- First Column -->
+                          <td style="width: 10%; vertical-align: top; border: 1px solid black; text-align: center; background-color: rgb(212, 212, 212);">
+                            <!-- Centered content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">Ref.No: </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Date:</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Your Enquiry: </p>
+                            <p style="border-bottom: 0px solid black; text-align: left;">Kind Attention:</p>
+                          </td>
+                      
+                          <!-- Second Column -->
+                          <td class="abc" style="width: 10%; vertical-align: top; border: 1px solid black; text-align: right; background-color:none">
+                            <!-- Right-aligned content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{RefID}}</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{value | date}} </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Email/Telephonic</p>
+                            <p style="border-bottom: 0px solid black; text-align: left;"> Mr.Halappa. M. B
+
+                            </p>
+                          </td>
+                      
+                          <!-- Third Column for Billing Address -->
+                         
+                        </tr>
+                      </table>
+                      
+
+                    <div style="text-align: left;">
+                        <br>
+                        Dear Sir/Madam,<br><br>
+                        <p><strong>Sub: <u>Offer of Vision Inspection system accessories – “ Rapid – I”</u></strong></p>
+                       
+
+
+
+
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr>
+                            <td colspan="4">
+                                <h4 style="text-align: center;">Vision Inspection system “Rapid-I”<strong>
+                                    </strong>
+
+                                </h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Sl.no</p>
+
+                            </td>
+
+
+                            <td style="width: 40%; vertical-align: top; border: 1px solid black;">
+                                <p >Description</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Qty</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Price</p>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                1.
+                            </td>
+                            <td style="width: 65%; vertical-align: top; border: 1px solid black; ">
+                                2MP Rapidcam Cable for Rapid-I VMS
+
+
+                            </td>
+                            
+
+                            <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{VisionQtyA}}</p>
+                              </td>
+                              <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p   style="width: 100%; border: none; outline: none;">{{VisionPriceA}}</p>
+                            </td>
+
+
+                        </tr>
+
+
+
+
+                            <tr>
+                                <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                    2.
+                                </td>
+                                <td style="width: 65%; vertical-align: top; border: 1px solid black; ">
+                                    Service Visit Charges
+    
+    
+    
+                                </td>
+                                
+    
+                                <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                    <p  style="width: 100%; border: none; outline: none;">{{VisionQtyB}}</p>
+                                  </td>
+                                  <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                    <p   style="width: 100%; border: none; outline: none;">{{VisionPriceB}}</p>
+                                </td>
+    
+                            </tr>
+    
+    
+    
+
+                                <tr>
+                                    <td colspan="4" style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                        <h5 style="text-align: center;">
+                                            <strong>Total Accessories price: Rs. {{ TotalAmount | number }}
+                                            <br>
+                                            ( Rupees {{ TotalAmount | numtowords }} Only)
+                                            </strong>
+                                        </h5>
+                                    </td>
+                                </tr>
+
+
+                               
+
+
+                      
+                     
+
+                    </table>
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black; ">
+                        <tr>
+                            <td colspan="4" >
+                                <h4 style="text-align: center; background-color: rgb(212, 212, 212);"><strong> TERMS AND CONDITIONS
+                                    </strong> 
+
+                                </h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >1.</p>
+
+                            </td>
+
+
+                            <td style="width: 10; vertical-align: top; border: 1px solid black;">
+                                <p >Price</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >Packing, Forwarding, Freight and Insurance @ Nil extra
+
+                                </p>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >2.</p>
+
+                            </td>
+
+
+                            <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                                <p >Validity</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >45 days from the date hereof
+
+
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >3.</p>
+
+                            </td>
+
+
+                            <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                                <p >Delivery</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p > One Week from the date of receipt of technically and commercially clear  Purchase order
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >4.</p>
+
+                            </td>
+
+
+                            <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                                <p >Tax</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >GST 18%</p>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >5.</p>
+
+                            </td>
+
+
+                            <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                                <p >GST Details:</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >GSTIN: 29AAACC8014D1Z0;   HSN: 84733099;   SAC: 998717</p>
+
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >6.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p > <strong> Payment terms </strong></p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >100% advance alongwith Purchase Order. prior to despatch.  
+
+
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >7.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Jurisdiction
+                                </p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >Subject to Bangalore Jurisdiction </p>
+
+                            </td>
+                        </tr>
+                    </table></div>
+
+                    <div style="text-align: left;">
+                  
+                        <p>For  <strong> CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p>
+    
+                       <strong> Shivaputra B Dinni </strong> <br />
+                       <strong>    (Sr. Application Engg) </strong><br />
+    
+                    </div> </div>
+
+              
+
+
+                </div><br>
+    
+                <div>&nbsp;</div>
+    
+
+        <!-- <button type="button" class="btn btn-success" data-dismiss="modal"
+            style="background-color: rgb(27, 9, 129);" (click)="save()">SAVE</button>  -->
+
+            <div class="col-md-12 row"><br><br><br>
+                <div class="col-md-4"></div>
+                <div class="col-md-1">
+                    
+        <button style="width: 50%;" type="button" class="btn btn-success" data-dismiss="modal"
+        style="background-color: rgb(27, 9, 129);" (click)="save()">SAVE</button> 
+                </div>
+                <div class="col-md-2">
+                    <input style="width: 50%;" type="button" (click)="print('printsection')" value="PRINT"
+                        class="form-control btn-warning" />
+                </div>
+                <br><br> <br><br> <br><br> <br><br><br> <br><br>
+                <div class="col-md-4">&nbsp;</div>
+            </div>
+      
+   
+
+
+
+
+
+

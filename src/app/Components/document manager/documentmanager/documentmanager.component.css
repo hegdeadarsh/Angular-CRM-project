@@ -1,0 +1,43 @@
+/* Add this style to your existing CSS or in a style block */
+.mail-template-dropdown {
+    position: absolute;
+    width: 190px; /* Adjust the width as needed */
+    top: 10px; /* Adjust the top position to align it above the "Attach PDF" button */
+    left: 515px; 
+    height: 35px;
+    padding: -0.625rem .75rem;
+ }
+ table {
+   border-collapse: collapse;
+   width: 100%;
+ }
+
+ th, td {
+   border: 1px solid #dddddd;
+   text-align: left;
+   padding: 8px;
+ }
+
+ th {
+   background-color: #f2f2f2;
+ }
+ .form-control.mail-template-dropdown {
+   position: absolute;
+   width: 190px;
+top: -79px;
+   left: 515px;
+   height: 35px;
+   padding: -0.625rem }
+   .button-container {
+      margin-top: -79px; /* Adjust this value to move the buttons up or down */
+    }
+    .container12{
+      width: 722px;
+      height: 150px;
+      left: 5px;
+      top: 5px;
+      position: absolute;
+      background: #f3f3f3;
+      border: 1px #DFD7D7 solid;
+    }
+   

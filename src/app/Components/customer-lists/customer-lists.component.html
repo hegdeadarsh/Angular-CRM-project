@@ -1,0 +1,187 @@
+<div>&nbsp;</div>
+<div class="container">
+    <h2 class="text-center">Registered Customers List</h2>
+</div><br>
+<div class="col-md-16 ">
+    <div class="table-container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="searchInput" placeholder="Search by Customer Name"
+                    [(ngModel)]="searchText">
+            </div><div class="col-md-8"></div>
+        </div> <br>
+        <table style="width:90%;border-collapse: collapse; 
+        margin-left: auto;
+        margin-right: auto;" #table id="tableId">
+            <tr class="sticky-header">
+                <th style="border: 1px solid black;text-align: center;">SNo.</th>
+                <th style="border: 1px solid black; text-align: center; width: 300%;">Customer Name</th>
+
+                <th style="border: 1px solid black;text-align: center;">Unit</th>
+                <th style="border: 1px solid black;text-align: center;">Address One</th>
+                <th style="border: 1px solid black;text-align: center;">Address Two</th>
+                <th style="border: 1px solid black;text-align: center;">Address Three</th>
+                <th style="border: 1px solid black;text-align: center;">Billing Address</th>
+
+                <th style="border: 1px solid black;text-align: center;">City</th>
+                <th style="border: 1px solid black;text-align: center;">State</th>
+                <th style="border: 1px solid black;text-align: center;">Pin</th>
+                <th style="border: 1px solid black;text-align: center;">GSTIN</th>
+                <th style="border: 1px solid black;text-align: center;">Cluster</th>
+                <th style="border: 1px solid black;text-align: center;">Route No</th>
+                <!-- <th style="border: 1px solid black;text-align: center;">Region</th> -->
+                <th style="border: 1px solid black;text-align: center;">Zone</th>
+                <th style="border: 1px solid black;text-align: center;">Edit</th>
+                <th style="border: 1px solid black;text-align: center;">Delete</th>
+            </tr>
+            <!-- | search: searchText -->
+            <tr style="border: 1px solid black;height: 25px;"
+                *ngFor="let customer of customerList  | search: searchText ; let i = index  line-height: 1.2;">
+                <td style="border: 1px solid black;text-align: right;padding: 1px; ">{{(i+1)}}</td>
+                <td style="border: 1px solid black;text-align: left;padding: 1px;" data-toggle="modal" data-target="#exampleModal"
+                    (click)="getPerticularCustomerContactDetails(customer)"><button
+                        class="btn btn-clear">{{customer.companyName}}</button></td>
+                <td style="border: 1px solid black; padding: 1px;">{{customer.unit}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.addressOne}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.addressTwo}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.addressThree}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.billingAddress}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.city}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.state}}</td>
+                <td style="border: 1px solid black;text-align: right;padding: 1px;">{{customer.pincode}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.gstin}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.cluster}}</td>
+                <td style="border: 1px solid black;padding: 1px;">{{customer.routeNumber}}</td>
+                <!-- <td style="border: 1px solid black;">{{customer.region}}</td> -->
+                <td style="border: 1px solid black;padding: 1px;">{{customer.zone}}</td>
+                <td style="border: 1px solid black;padding: 1px;">
+                    <button class="btn btn-secondary" data-toggle="modal" data-target="#myModalEdit"
+                        (click)="editCustomer(customer)"></button>
+                </td>
+                <td style="border: 1px solid black;">
+                    <button class="btn btn-danger" (click)="deleteCustomer(customer.customerID)"></button>
+                </td>
+
+            </tr>
+        </table><br>
+    </div>
+    <br>
+    <div style="text-align: center;" *ngIf="exporting">
+        <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel
+            &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+        <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to
+            PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>
+    </div>
+    <br />
+    <div>&nbsp;</div>
+    <pagination-controls (pageChange)="p = $event" class="custom-pagination" style="float: right"></pagination-controls>
+    <br><br><br><br><br>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 200%; margin-left: -43%;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Customer Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered"
+                        style="border-width:1px; border-color:black;font-size:20px;padding: 5px;margin: 0 auto; ">
+                        <thead>
+                            <tr style="border-width:1px; border-color:black;font-size:15px;">
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    SlNo.</th>
+                                <!-- <th style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">Salute</th> -->
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    Contact Name</th>
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    Designation</th>
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    Email</th>
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    Mobile</th>
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    Edit</th>
+
+                                <th
+                                    style="border-width:1px; border-color:rgb(248, 244, 244);color: rgb(231, 172, 94);background-color:rgb(27, 9, 129);text-align: center;">
+                                    Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let details of contactDetails; let i = index">
+                                <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">
+                                    {{(i+1)}}</td>
+                                <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">
+                                    {{details.salute}} {{details.contactName}}</td>
+
+                                <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">
+                                    {{details.designation}}</td>
+                                <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;">
+                                    {{details.email}}</td>
+                                <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;">
+                                    {{details.mobile}}</td>
+                                <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;">
+                                    <button class="btn btn-secondary" data-toggle="modal" data-target="#myModalUpdate"
+                                        (click)="editContactDetails(details)">Edit</button>
+                                </td>
+                                <td style="border-width:1px; border-color:black;text-align: center;font-size:18px;">
+                                    <button class="btn btn-danger"
+                                        (click)="deleteContactDeatils(details.id)">Delete</button>
+                                </td>
+                                <!-- <td>
+                                 <button>
+                                     <i class="fa fa-delete"></i>
+                                 </button>
+                             </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <pagination-controls (pageChange)="p = $event" style="float: right"></pagination-controls> -->
+                </div>
+                <br>
+                <div *ngIf="EditContact" class="col-md-12 row"><br>
+                    <div class="col-md-1">
+                        <p>Salute: <input class="form-control" type="text" id="salutation" name="salutation"
+                                [(ngModel)]="salutation"></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>Name: <input class="form-control" type="text" id="contactName" name="contactName"
+                                [(ngModel)]="contactName"></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>Designation: <input class="form-control" type="text" id="designation" name="designation"
+                                [(ngModel)]="designation"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Email: <input class="form-control" type="text" id="email" name="email" [(ngModel)]="email">
+                        </p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>Mobile: <input class="form-control" type="text" id="mobile" name="mobile"
+                                [(ngModel)]="mobile"></p>
+                    </div>
+                    <div class="col-md-1">&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary"
+                            (click)="UpdateContactDetails()">Update</button></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

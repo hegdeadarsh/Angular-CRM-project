@@ -1,0 +1,100 @@
+
+
+
+<div>&nbsp;</div>
+<h2 style="text-align: center;">Request List</h2>
+<div>&nbsp;</div>
+
+<div class="col-md-12 row">
+    <div class="col-md-1">
+        From Date :
+        <input type="date" [(ngModel)]="fromDate" class="form-control" />
+    </div>
+    <div class="col-md-1">
+        To Date :
+        <input type="date" [(ngModel)]="toDate" class="form-control" />
+    </div>
+    <div class="col-md-1">
+        <br />
+        <button class="btn btn-primary form-control" (click)="GetDatewiserequest()">
+            <span class="glyphicon glyphicon-share-alt">&nbsp;</span>OK
+        </button>
+    </div>
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2">
+        <label for="unit">Machine Number:</label>
+        <input class="form-control" type="text" id="machineNumber" name="machineNumber" (change)="onChangeMachineNumber()" [(ngModel)]="machineNumber" required>
+    </div>
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2">
+        <label for="companyName">Select Customer Name:</label>
+        <ng-select [items]="customerList" [bindLabel]="'companyName'" [(ngModel)]="selectedCustomer" (change)="onSelectCompany($event)">
+            <ng-option value="" disabled>Select Customer</ng-option>
+        </ng-select>
+    </div>
+
+
+
+
+</div><br>
+<div *ngIf="allrequest" class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table   #table id ="tableId" class="table table-bordered"
+                style="border-width:1px; border-color:black;font-size:20px;padding: 5px;margin: 0 auto; ">
+                <thead>
+
+                    <tr style="border-width:1px; border-color:black; font-size:12px;">
+                        <th style="border-width:1px; border-color:rgb(253, 253, 253);color: antiquewhite;background-color: black;text-align: center;">SlNo.</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Customer Name</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Machine Number</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Model</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Contact Persons</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Request For</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">S & S List</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Remarks</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Status</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Created By</th>
+                        <th style="border-width:1px; border-color:rgb(248, 244, 244);color: antiquewhite;background-color: black;text-align: center;">Request Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of requestlist  | paginate: { itemsPerPage: 10, currentPage: p } ; let i = index"  style="font-size: 12px; line-height: 1.1;">
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px; padding: 2px;">{{10 * (p-1)+(i+1)}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;  padding: 2px;">{{request.companyName}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;  padding: 2px;">{{request.machineNumber}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px;  padding: 2px;">{{request.modelName}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px;  padding: 2px;">
+                            <p *ngFor="let contact of request.contactData">
+                                {{contact.salute}} {{contact.contactName}}<br> {{contact.mobile}}, {{contact.email}}
+                                <br>{{contact.designation}}
+                          
+                        </td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{request.requestFor}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{request.sandS}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{request.remarks}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: center;font-size:18px">
+                            <p *ngIf="request.isDone" style="color: green;text-align: center;font-size:18px"><b>Done</b></p>
+                            <p *ngIf="!request.isDone" style="color: red;text-align: center;font-size:18px"><b>Not Done</b></p>
+                        </td>
+                        <td style="border-width:1px; border-color:black;text-align: left;font-size:18px">{{request.createdBy}}</td>
+                        <td style="border-width:1px; border-color:black;text-align: right;font-size:18px">{{request.createdOn | date}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+
+            <div style="text-align: center;" *ngIf="exporting">
+                <button style="margin: 0 auto;" class="btn btn-info" (click)="exportTableToExcel()">Export to Excel &nbsp;&nbsp;<i class="far fa-file-excel"></i></button>
+                <button style="margin: 0 auto; margin: 15px;" class="btn btn-info" (click)="exportTableToPDF()">Export to PDF &nbsp;&nbsp;<i class="far fa-file-pdf"></i></button>    </div>
+        </div>
+        <br><br><br>
+        <pagination-controls (pageChange)="p = $event" class="custom-pagination" style="float: right"></pagination-controls>
+    </div>
+</div><br><br><br><br><br>

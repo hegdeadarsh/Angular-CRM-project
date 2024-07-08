@@ -1,0 +1,30 @@
+.table-with-bold-lines {
+  border-collapse: collapse;
+ 
+}
+
+.table-with-bold-lines th,
+.table-with-bold-lines td {
+  border: 1px solid black; 
+  padding: 5px;
+}
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2; /* Optional: Set a background color for the header */
+  z-index: 1; /* Optional: Set a higher z-index to make sure it appears above other elements */
+}
+.table-with-bold-lines p {
+  margin: 0; /* Remove default margin */
+  padding: 5px 10px; /* Adjust padding as needed */
+  line-height: 0.5; /* Adjust line height as needed */
+}
+
+.hover-text {
+  background-color: #faefef; /* Initial background color */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.hover-text:hover {
+  background-color: #c7bbbb; /* Background color on hover */
+}

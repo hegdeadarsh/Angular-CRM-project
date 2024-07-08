@@ -1,0 +1,1031 @@
+<div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <div class="container" style="border: 0cap;">
+
+            <div class="col-md-12 row">
+                <div class="col-md-1"></div>
+
+                
+       <div>
+        <label for="refIDInput">Enter Reference ID:</label>
+        <input type="text" id="refIDInput" [(ngModel)]="RefID" placeholder="Enter Reference ID">
+        <button (click)="fetchTemplate()">Fetch</button>
+      </div>
+   
+      <div class="col-md-8">
+        <p style="text-align: center; font-size: 20px;"><strong> <u> Quotation 2015-Z25 Editabel </u></strong></p>
+
+        </div> 
+    <div class="col-md-12 row">
+        
+         
+<table style="width: 67%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+<tr style="border: 1px solid black; height: 1px;">
+    <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+        <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQty:</label>
+    </td>
+    <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+        <input type="text" id="editableQty" [(ngModel)]="editableQty" style="width: 100px; border: none;" />
+    </td>
+    <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+        <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePrice:</label>
+    </td>
+    <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+        <input  type="text" id="editablePrice" [(ngModel)]="editablePrice" style="width: 100px; border: none;" />
+    </td>
+</tr>
+
+<tr style="border: 1px solid black; height: 1px;">
+<td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+    <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyA:</label>
+</td>
+<td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+    <input type="string" id="editableQty" [(ngModel)]="editableQtyA" style="width: 100px; border: none;" />
+</td>
+<td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+    <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceA:</label>
+</td>
+<td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+    <input  type="text" id="editablePrice" [(ngModel)]="editablePriceA" style="width: 100px; border: none;" />
+</td>
+</tr>
+
+<tr style="border: 1px solid black; height: 1px;">
+    <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+        <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyB:</label>
+    </td>
+    <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+        <input type="text" id="editableQty" [(ngModel)]="editableQtyB" style="width: 100px; border: none;" />
+    </td>
+    <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+        <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceB:</label>
+    </td>
+    <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+        <input  type="text" id="editablePrice" [(ngModel)]="editablePriceB" style="width: 100px; border: none;" />
+    </td>
+    </tr>
+
+    <tr style="border: 1px solid black; height: 1px;">
+        <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+            <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyC:</label>
+        </td>
+        <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+            <input type="text" id="editableQty" [(ngModel)]="editableQtyC" style="width: 100px; border: none;" />
+        </td>
+        <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+            <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceC:</label>
+        </td>
+        <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+            <input  type="text" id="editablePrice" [(ngModel)]="editablePriceC" style="width: 100px; border: none;" />
+        </td>
+        </tr>
+
+        <tr style="border: 1px solid black; height: 1px;">
+            <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyD:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input type="text" id="editableQty" [(ngModel)]="editableQtyD" style="width: 100px; border: none;" />
+            </td>
+            <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceD:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input  type="text" id="editablePrice" [(ngModel)]="editablePriceD" style="width: 100px; border: none;" />
+            </td>
+            </tr>
+
+            
+            <tr style="border: 1px solid black; height: 1px;">
+                <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                    <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyE:</label>
+                </td>
+                <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                    <input type="text" id="editableQty" [(ngModel)]="editableQtyE" style="width: 100px; border: none;" />
+                </td>
+                <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                    <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceE:</label>
+                </td>
+                <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                    <input  type="text" id="editablePrice" [(ngModel)]="editablePriceE" style="width: 100px; border: none;" />
+                </td>
+                </tr>
+
+                <tr style="border: 1px solid black; height: 1px;">
+                    <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                        <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyF:</label>
+                    </td>
+                    <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                        <input type="text" id="editableQty" [(ngModel)]="editableQtyF" style="width: 100px; border: none;" />
+                    </td>
+                    <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                        <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceF:</label>
+                    </td>
+                    <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                        <input  type="text" id="editablePrice" [(ngModel)]="editablePriceF" style="width: 100px; border: none;" />
+                    </td>
+                    </tr>
+
+                    <tr style="border: 1px solid black; height: 1px;">
+                        <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                            <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyG:</label>
+                        </td>
+                        <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                            <input type="text" id="editableQty" [(ngModel)]="editableQtyG" style="width: 100px; border: none;" />
+                        </td>
+                        <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                            <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceG:</label>
+                        </td>
+                        <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                            <input  type="text" id="editablePrice" [(ngModel)]="editablePriceG" style="width: 100px; border: none;" />
+                        </td>
+                        </tr>
+
+                        <tr style="border: 1px solid black; height: 1px;">
+                            <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                                <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableQtyH:</label>
+                            </td>
+                            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                                <input type="text" id="editableQty" [(ngModel)]="editableQtyH" style="width: 100px; border: none;" />
+                            </td>
+                            <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                                <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditablePriceH:</label>
+                            </td>
+                            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                                <input  type="text" id="editablePrice" [(ngModel)]="editablePriceH" style="width: 100px; border: none;" />
+                            </td>
+                            </tr>
+                    
+
+
+
+</table> 
+<div class="col-md-8 d-flex justify-content-center align-items-center"><br> <br> <br> 
+<button class="btn btn-primary text-center" (click)="updateTemplate()">Save Changes</button>
+</div>
+                <div id="printsection" class="col-md-8 table-bordered"
+                    style="background-color:white;border-color:forestgreen;border-width:2px">
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-8">
+                          
+                        </div>
+                        <div class="col-md-4 logo">
+                           <img class="logo" style="width: 60%;" src="assets/Group 2CRMlogo2.png" alt="logo"> 
+                        </div>
+                        <div class="col-md-2">
+                            <p style="text-align: center; font-size: 30px;">
+                                <strong>Quotation 2015-Z25</strong>
+                            </p>
+                            
+                            <!-- Hidden input field to save the static name using ngModel -->
+                            <input type="hidden" [(ngModel)]="TemplateName" value="Quotation  2015-Z25" />
+                        </div>
+                    </div>
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr style="border: 1px solid black; height: 25px;">
+
+
+                            <td style="width: 19%; vertical-align: top; border: 1px solid black; text-align: left;">
+                                <p style="border-bottom: 1px solid black; text-align: left;">Billing Address:</p>
+                                <p style="text-align: left;">{{billingAddress}}</p>
+                              </td>
+                          <!-- First Column -->
+                          <td style="width: 10%; vertical-align: top; border: 1px solid black; text-align: center; background-color: rgb(212, 212, 212);">
+                            <!-- Centered content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">Ref.No: </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Date:</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Your Enquiry: </p>
+                            <p style="border-bottom: 0px solid black; text-align: left;">Kind Attention:</p>
+                          </td>
+                      
+                          <!-- Second Column -->
+                          <td class="abc" style="width: 10%; vertical-align: top; border: 1px solid black; text-align: right; background-color:none">
+                            <!-- Right-aligned content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{RefID}}</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{value | date}} </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Email/Telephonic </p>
+                            <p style="text-align: left;"> Mr.Jaydev Patel</p>
+                          </td>
+                      
+                          <!-- Third Column for Billing Address -->
+                         
+                        </tr>
+                      </table>
+                      
+
+                    <div style="text-align: left;">
+                        <br>
+                        Dear Sir/Madam,<br><br>
+                        <p><strong>Sub: <u>Of   Offer for Vision Measuring system – “Rapid-I V2015J LX”</u></strong></p>
+                        <br /><br />
+                        Thank you very much for your interest in Rapid-I Systems.  <br /><br /><br />
+
+                        As desired, we are pleased to offer our Vision Measuring System – Rapid-I v2015J LX. The Systems are shipping currently with Rapid-I Version 5.0 Software with powerful graphical overlay features, seamless CAD integration, automated report generation in MS Excel®, Snap-shot/Frame Save features, etc. We have also offered the CNC Version for your kind perusal. 
+
+
+                        <br /><br /><br />
+
+                       
+                        For commercial details, kindly be guided by the attached Terms and Conditions sheet. Trust this meets with your requirement and look forward to hear from you. 
+<br /><br />
+
+                        Assuring you our best services always,<br />
+                        Yours faithfully,<br />
+                        <p><strong>For CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p><br /><br />
+
+                  <strong>   Shivaputra B Dinni  </strong> <br />
+                  <strong>      (Sr. Application Engg)  </strong> <br /><br />
+
+                  P.S: All prices quoted are in <strong> Indian Rupees.</strong>
+                    </div>
+<br><br><br><br>
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-5 logo">
+                            <img class="logo" style="width: 60%;" src="assets/Group 2CRMlogo2.png" alt="logo">
+
+                        </div>
+                        <div class="col-md-1">
+                        <table style="width: 30%; margin-top: -60px; border-collapse: collapse; border: 1px solid black;">
+                            <tr>
+                                <th  style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                                    M/s. Hitech Metrology Pvt Ltd 
+                                </th>
+                            
+                            </tr>
+                            <tr>
+                                <td style="width: 33%; vertical-align: top; border: 1px solid black; text-align: center;">
+                                    {{RefID}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="width: 33%; vertical-align: top; border: 1px solid black; text-align: center;">
+                                   {{value | date}}
+                                </td>
+                            </tr>
+                           </table>
+                    </div>
+
+
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr>
+                            <td colspan="4">
+                                <h4 style="text-align: center;">Vision Measuring System – Model :<strong> Rapid-<i>I</i>
+                                    </strong>  2015 HT
+
+                                </h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Sl.no</p>
+
+                            </td>
+
+
+                            <td style="width: 40%; vertical-align: top; border: 1px solid black;">
+                                <p >Description</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Qty</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Price</p>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                1.
+                            </td>
+                            <td style="width: 65%; vertical-align: top; border: 1px solid black;">
+                                <strong> Basic System </strong>
+                            </td>
+                            <td rowspan="4" style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{BasicSystemQty}}</p>
+                              </td>
+                              <td rowspan="4" style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p   style="width: 100%; border: none; outline: none;">{{BasicSystemPrice}}</p>
+                            </td>
+
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right;  border: 1px solid black;">
+                                <br>
+                                a<br>
+                                b <br>c <br> <br>
+                                d<br> e<br> <br><br> f<br> g
+
+
+
+                            </td>
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                Bench-top Vision Measuring System<br>
+                                Motorised joystick operated X, Y, Z measuring axes<br>
+                                100-240V, 50-60 Hz A.C. power with isolated Earthing <br>
+                                Zoom magnification : 11X to 67X (image calibrated at end-points only) <br>
+                                Two Axis work stage : 375mm x 275mm <br>
+                                Measuring Travel : <br>
+                                X-Y Travel:200mm x 150mm with 0.5µm resolution
+                                Z Travel: 150mm with 0.5µm resolution<br>
+                                Solid-state Zonal Ring Lighting with Software Control<br>
+                                Ultrafine Reference Cross-Hair & On-Screen DRO <br>
+                            </td>
+
+
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                2.
+                            </td>
+
+                            <td style="width: 65%; vertical-align: top; border: 1px solid black;">
+                                <strong> Rapid-I V5.0 Software features </strong>
+
+
+                            </td>
+
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right;  border: 1px solid black;">
+                                a <br> b <br> c <br> d <br>
+
+
+                            </td>
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+
+                                Geometric Measurements, Snap-shot / Frame Save <br>
+                                Graphical *.dxf export / import and overlay functions <br>
+                                On-the-fly Report Generation <br>
+                                Trace-on-Video for reverse engineering/quick measurements <br>
+
+
+
+
+
+
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td   colspan="4"  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <h5 style="text-align: center;">  <strong>Basic Machine package price excluding Computer system: Rupees {{ TotalAmount | number }} <br>
+                                    (Rupees{{ TotalAmount |numtowords}} Only)
+                                </strong>
+                                </h5>
+                            </td>
+                        </tr>
+
+
+                            <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                3.
+                            </td>
+
+                            <td style="width: 65%; vertical-align: top; border: 1px solid black;">
+                                <strong> Optional Accessories & Features: </strong>
+
+
+                            </td>
+
+<td></td>
+
+<td></td>
+                        </tr>
+
+
+
+                        
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                a
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                Full CNC system with software-based Auto-Focus; Automatic Edge Detection (in profile
+                                light); Advanced Dust/Burr Filtering Algorithms; <br> Automated, Customised Reports;
+                                Easy Part-Programming
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;" >{{OptionalQtyA}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;" >{{OptionalPriceA}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                b
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                2x Lens for 22X to 134X magnification
+
+
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyB}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceB}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                c
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                Co-Axial Lighting System (to light up small bores)
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyC}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceC}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                d
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                Auxillary Lighting (Flexible twin lights to augment surface ring-light)
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyD}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceD}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                e
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                Renishaw® Touch Probe (TP20),Controller, software & 2mm Ruby Stylus*
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyE}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceE}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                f
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                2D  Non - Contact Contour tracing module (XZ or YZ plane) *
+
+
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyF}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceF}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                g
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                3D  Non - Contact Scanning Module *
+
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyG}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceG}}</p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+
+                            <td style="width: 5%; vertical-align: top;text-align: right; border: 1px solid black;">
+                                h
+
+
+
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                2D Automatic profile scan module (only on X Y plane) *
+
+
+
+                                <br>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalQtyH}}</p>
+                            </td>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{OptionalPriceH}}</p>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+<td></td>
+<td style="width: 5%; vertical-align: top; border: 1px solid black;">
+    *Works only on CNC machine.
+ <br>
+
+                    </table>
+
+
+                    <div style="text-align: left;">
+                  
+                        <p>For  <strong> CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p>
+    
+                       <strong> Shivaputra B Dinni </strong> <br />
+                       <strong>    (Sr. Application Engg) </strong><br />
+    
+                     
+                    </div>
+
+                </div>
+
+              <br><br><br><br><br>
+
+                <div class="col-md-12 row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-5 logo">
+                        <img class="logo" style="width: 60%;" src="assets/Group 2CRMlogo2.png" alt="logo">
+
+                    </div>
+                    <div class="col-md-1">
+                    <table style="width: 30%; margin-top: -60px; border-collapse: collapse; border: 1px solid black;">
+                        <tr>
+                            <th  style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                                M/s. Hitech Metrology Pvt Ltd ,
+                            </th>
+                        
+                        </tr>
+                        <tr>
+                            <td style="width: 33%; vertical-align: top; border: 1px solid black; text-align: center;">
+                             {{RefID}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 33%; vertical-align: top; border: 1px solid black; text-align: center;">
+                               {{value | date}}
+                            </td>
+                        </tr>
+                       </table>
+                </div>
+
+
+                <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                    <tr>
+                        <td colspan="4">
+                            <h4 style="text-align: center;"><strong> TERMS AND CONDITIONS
+                                </strong> 
+
+                            </h4>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >1.</p>
+
+                        </td>
+
+
+                        <td style="width: 10; vertical-align: top; border: 1px solid black;">
+                            <p >Price</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Packing, Forwarding & Freight charges extra Rs.12,500/-.</p>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >2.</p>
+
+                        </td>
+
+
+                        <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                            <p >Exclusions</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Desktop PC with Licensed Microsoft Windows 10 Professional 64-Bit Operating system & MS Office® Basic (or higher) required and under scope of purchaser.
+
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >3.</p>
+
+                        </td>
+
+
+                        <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                            <p >Validity</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >30 days from the date hereof.
+
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >4.</p>
+
+                        </td>
+
+
+                        <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                            <p >Delivery</p>
+
+                        </td>
+
+
+                        <td style="width: 60; vertical-align: top; border: 1px solid black;">
+                            <p >3-4 weeks from the date of receipt of technically and commercially clear PO.</p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >5.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p > TAX </p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >GST @18% at present. But, the Sales Tax applicable at the time of delivery will be charged, as per Govt. rules. 
+
+
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >6.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >GST Details
+
+                            </p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >GST No.: 29AAACC8014D1Z0   HSN: 84719000   SAC: 998717 </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >7.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Payment terms</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >100% payment against pro-forma Invoice prior to despatch.</p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >8.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Inspection</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Pre-despatch Inspection can be carried out at our premises. </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >9.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Warranty</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Equipment comes with standard 12 months Warranty from date of commissioning against faulty material and poor workmanship. 
+                                </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >10.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Software Upgrades</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Generic software upgrades on this platform will be updated to you free of cost during the Warranty Period.
+                                
+                        </td>
+                    </tr>
+                  
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >11.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Installation & Commissioning</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >We will install & commission the instrument at your site. One day free training is included.
+                            </p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >12.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p > Additional Training</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p > We can train your engineers to extract the power of vision technology for fine metrology. Training cost is Rs. 7,000/- per day. </p>
+
+                        </td>
+                    </tr>
+                    
+
+                       
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >13.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Calibration</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Calibration certificate will be issued by us with traceability to National/ International Standards.</p>
+
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >14.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Jurisdiction</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Subject to Bangalore, India Jurisdiction.</p>
+
+                        </td>
+                        
+                    </tr><tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >15.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Internet Access</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >The System connected to Rapid-I must have internet access with Team-Viewer for the purpose of on-line support, otherwise we will not provide service support.</p>
+
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >16.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Power Supply</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >100-240V AC, 50-60Hz with isolated earthing for Rapid-I and connected computer required and under the scope of purchaser.</p>
+
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >17.</p>
+
+                        </td>
+
+
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p >Instructions Manual</p>
+
+                        </td>
+
+
+                        <td style="width:60%; vertical-align: top; border: 1px solid black;">
+                            <p >Soft copy of Instructions Manual will be provided by email or as download from www.rapidi.in . Printed manual can be provided at extra cost.</p>
+
+                        </td>
+                        
+                    </tr>
+                </table>
+                </div>
+                <div style="text-align: left;">
+              
+                    <p>For  <strong> CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p>
+
+                   <strong> Shivaputra B Dinni </strong> <br />
+                   <strong>    (Sr. Application Engg) </strong><br />
+
+                 
+                </div>
+            </div>
+
+          
+
+
+        </div>
+
+        <div>&nbsp;</div>
+        <div class="col-md-12 row"><br />
+            <div class="col-md-3">&nbsp;</div>
+            <button type="button" class="btn btn-success btn-md" data-dismiss="modal" style="background-color: rgb(27, 9, 129); height: 40px;" (click)="save()">SAVE</button>
+            <div class="col-md-2">
+                <input type="button" (click)="print('printsection')" value="PRINT"
+                    class="form-control btn-warning" />
+            </div>
+            <br><br> <br><br> <br><br> <br><br>
+            <div class="col-md-4">&nbsp;</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+

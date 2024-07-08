@@ -1,0 +1,28 @@
+.action-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red; /* Change this to the desired color */
+    height: 100%;
+  }
+
+  .custom-title {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+
+  ::ng-deep .custom-pagination .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #413503;
+    color: #fefefe;
+    cursor: default;
+}
+
+
+::ng-deep .custom-pagination .ngx-pagination li {
+    display: inline-block;
+    background-color: #2199e8;
+    color:black;
+}

@@ -1,0 +1,713 @@
+
+<!-- // Rapid-I-64 bit Cam -->
+
+
+<div class="col-md-12 row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <div class="container" style="border: 0cap;">
+            <br> <div>
+                <label for="refIDInput"><strong> Enter Reference ID: &nbsp; </strong></label>
+                <input type="text" id="refIDInput" [(ngModel)]="RefID" placeholder="Enter Reference ID">&nbsp;
+                <button (click)="fetchTemplate()">Fetch</button>
+              </div>  <br>
+            <div class="col-md-8">
+                <p style="text-align: center; font-size: 20px;"><strong> <u> Rapid-I-64-CAM Editabel </u></strong></p>
+
+                </div> 
+            <div class="col-md-12 row">
+                
+                 
+    <table style="width: 65%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+        <tr style="border: 1px solid black; height: 1px;">
+            <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableDesQty:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input type="text" id="editableQty" [(ngModel)]="editableDesQty" style="width: 100px; border: none;" />
+            </td>
+            <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditableDesPrice:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input  type="text" id="editablePrice" [(ngModel)]="editableDesPrice" style="width: 100px; border: none;" />
+            </td>
+        </tr>
+
+        <tr style="border: 1px solid black; height: 1px;">
+            <td style="width: 5px; vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editableQty" style="display: inline-block; margin-right: 70px;">EditableAxesQty:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input type="text" id="editableQty" [(ngModel)]="editableACSCQty" style="width: 100px; border: none;" />
+            </td>
+            <td style=" vertical-align: top; border: 1px solid black; text-align: left;">
+                <label for="editablePrice" style="display: inline-block; margin-right: 70px;">EditableAxesPrice:</label>
+            </td>
+            <td style=" vertical-align: top; border: 0px solid black; text-align: left;">
+                <input  type="text" id="editablePrice" [(ngModel)]="editableACSCPrice" style="width: 100px; border: none;" />
+            </td>
+        </tr>
+
+
+    </table> 
+    <div class="col-md-8 d-flex justify-content-center align-items-center"><br> <br> <br> 
+        <button class="btn btn-primary text-center" (click)="updateTemplate()">Save Changes</button>
+    </div>
+
+        <div class="container" style="border: 0cap;">
+
+           
+                <div class="col-md-1"></div>
+                <div id="printsection" class="col-md-8 table-bordered"
+                    style="background-color:white;border-color:forestgreen;border-width:2px">
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-8">
+                          
+                        </div>
+                        <div class="col-md-2 logo">
+                           
+                            <img class="logo" style="width: 50%;" src="assets/Group 2CRMlogo2.png" alt="logo"> 
+                         </div>
+                         <div class="col-md-2">
+                             <p style="text-align: center; font-size: 30px;"><strong>Rapid64 CAM-ACSC</strong></p>
+                             <input type="hidden" [(ngModel)]="TemplateName" value="Rapid64 CAM-ACSC" />
+                             </div>
+                      
+                    </div>
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr style="border: 1px solid black; height: 25px;">
+
+
+                            <td style="width: 19%; vertical-align: top; border: 1px solid black; text-align: left;">
+                                <p style="border-bottom: 1px solid black; text-align: left;">Billing Address:</p>
+                                <p style="text-align: left;">{{billingAddress}}</p>
+                              </td>
+                          <!-- First Column -->
+                          <td style="width: 10%; vertical-align: top; border: 1px solid black; text-align: center; background-color: rgb(212, 212, 212);">
+                            <!-- Centered content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">Ref.No: </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Date:</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Your Enquiry: </p>
+                            <p style="border-bottom: 0px solid black; text-align: left;">Kind Attention:</p>
+                          </td>
+                      
+                          <!-- Second Column -->
+                          <td class="abc" style="width: 10%; vertical-align: top; border: 1px solid black; text-align: right; background-color:none">
+                            <!-- Right-aligned content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{RefID}}</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{value | date}} </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Email/Telephonic </p>
+                            <p style="border-bottom: 0px solid black; text-align: left;"> Mr. M. Sundaram </p>
+                          </td>
+                      
+                          <!-- Third Column for Billing Address -->
+                         
+                        </tr>
+                      </table>
+                      
+                  
+                    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+                    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+                    <div style="text-align: left;">
+                        <br>
+                        Dear Sir/Madam,<br><br>
+                        <p><strong>Sub: <u> 64-bit Upgrade Features Offer for Vision Inspection system – “Rapid-I”
+                        </u></strong></p>
+                        <br /><br />
+                        Thank you very much for your interest in Rapid-I Systems. <br /><br /><br />
+
+                        As requested, we are pleased to provide our 64-bit Upgrade features offer for existing Vision 
+                        Measuring System <strong>– Rapid-I v2015J LX.</strong> The Upgrade will happen with powerful graphical overlay 
+                        features, seamless reporting to spread-sheet, Snap-shot / frame save features, etc. 
+
+                        We offer to upgrade new features for existing Rapid-I with extended warranty of 12 months, include 
+                        free software upgrade for this period.   
+
+
+                        <br /><br /><br />
+
+                        For further commercial details, kindly be guided by the attached Terms and Conditions sheet. We hope 
+                        this enables you to proceed further. We look forward to the pleasure of receiving your esteemed 
+                        Purchase Order. 
+ <br /><br />
+
+                        Assuring you our best services always,<br />
+                        Yours faithfully,<br />
+                        <p><strong>For CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p><br /><br />
+
+                  <strong>   Shivaputra B Dinni  </strong> <br />
+                  <strong>      (Sr. Application Engg)  </strong> <br /><br />
+
+                  P.S: All prices quoted are in  <strong> Indian Rupees.</strong>
+                    </div>
+               
+<br><br><br><br><br><br><br><br><br>
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-5 logo">
+                            <img class="logo" style="width: 50%;" src="assets/Group 2CRMlogo2.png" alt="logo">
+
+                        </div>
+
+
+                        <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                            <tr style="border: 1px solid black; height: 25px;">
+    
+    
+                                <td style="width: 19%; vertical-align: top; border: 1px solid black; text-align: left;">
+                                    <p style="border-bottom: 1px solid black; text-align: left;">Billing Address:</p>
+                                    <p style="text-align: left;">{{billingAddress}}</p>
+                                  </td>
+                              <!-- First Column -->
+                              <td style="width: 10%; vertical-align: top; border: 1px solid black; text-align: center; background-color: rgb(212, 212, 212);">
+                                <!-- Centered content -->
+                                <p style="border-bottom: 1px solid black; text-align: left;">Ref.No: </p>
+                                <p style="border-bottom: 1px solid black; text-align: left;">Date:</p>
+                                <p style="border-bottom: 1px solid black; text-align: left;">Your Enquiry: </p>
+                                <p style="border-bottom: 0px solid black; text-align: left;">Kind Attention:</p>
+                              </td>
+                          
+                              <!-- Second Column -->
+                              <td class="abc" style="width: 10%; vertical-align: top; border: 1px solid black; text-align: right; background-color:none">
+                                <!-- Right-aligned content -->
+                                <p style="border-bottom: 1px solid black; text-align: left;">{{RefID}}</p>
+                                <p style="border-bottom: 1px solid black; text-align: left;">{{value | date}} </p>
+                                <p style="border-bottom: 1px solid black; text-align: left;">Email/Telephonic </p>
+                                <p style="border-bottom: 0px solid black; text-align: left;">P1</p>
+                                <p style="border-bottom: 0px solid black; text-align: left;">P2</p>
+                              </td>
+                          
+                              <!-- Third Column for Billing Address -->
+                             
+                            </tr>
+                          </table>
+
+                    <br><br><br>
+
+
+                <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr>
+                            <td colspan="4">
+                                <h4 style="text-align: center;">Upgrade Feature & 1 Year ACSC for Existing Vision Measuring System-:<strong> Rapid-<i>I</i>
+                                    </strong> 4020 HT
+
+                                </h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Sl.no</p>
+
+                            </td>
+
+
+                            <td style="width: 40%; vertical-align: top; border: 1px solid black;">
+                                <p >Description</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Qty</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Price</p>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                1.
+                            </td>
+                            <td style="width: 65%; vertical-align: top; border: 1px solid black; background-color: lightblue;">
+                              10MP Camera (Works only with 64-Bit operating system) includes New control Cards for 64-Bit upgradation
+                            </td>
+                            
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{DesQty}}</p>
+                              </td>
+                              <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p   style="width: 100%; border: none; outline: none;">{{DesPrice}}</p>
+                            </td>
+
+                        </tr>
+
+
+                  
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                2.
+                            </td>
+
+                            <td style="width: 65%; vertical-align: top; border: 1px solid black;  background-color: lightblue;">
+                                Annual Comprehensive Service Contract (ACSC) for Rapid-I equipment 
+                                V2015J LX includes followings; <br>
+1.One time annual calibration cum PMV  <br>
+
+2.2nd PMV on mutually agreed date of contract year. <br>
+
+3.Free breakdown visit <br>
+
+4.Free telephonic and team viewer support. <br>
+
+5.Free upgrade of software if existing hardware supports <br>
+
+6.Spares replacement provided free of cost if any.
+
+
+
+                            </td>
+                            <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p  style="width: 100%; border: none; outline: none;">{{ACSCQty}}</p>
+                              </td>
+                              <td  style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p   style="width: 100%; border: none; outline: none;">{{ACSCPrice}}</p>
+                            </td>
+
+                        </tr>
+
+
+
+
+
+                      
+
+
+
+                     
+                        <tr>
+                            <td colspan="4" style="width: 5%; vertical-align: top; border: 1px solid black;">
+                        <h5 style="text-align: center;">
+                        <strong>Basic Machine package price excluding Computer system: USD {{ TotalAmount | number }} <br>
+                        (Rupees {{ TotalAmount | numtowords  }} Only)
+                        </strong>
+                        </h5>
+                        </td>
+                        </tr>
+                                             
+
+                    </table>
+
+
+                    <div style="text-align: left;">
+                  
+                        <p>For  <strong> CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p>
+    
+                       <strong> Shivaputra B Dinni </strong> <br />
+                       <strong>    (Sr. Application Engg) </strong><br />
+    
+                     
+                    </div>
+
+                    <br><br><br><br> <br><br><br><br> <br><br><br><br><br><br><br><br>
+
+
+                    <div class="col-md-12 row">
+                        <div class="col-md-8">
+                          
+                        </div>
+                        <div class="col-md-4 logo">
+                           <img class="logo" style="width: 50%;" src="assets/Group 2CRMlogo2.png" alt="logo"> 
+                        </div>
+                      
+                    </div>
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black;">
+                        <tr style="border: 1px solid black; height: 25px;">
+
+
+                            <td style="width: 19%; vertical-align: top; border: 1px solid black; text-align: left;">
+                                <p style="border-bottom: 1px solid black; text-align: left;">Billing Address:</p>
+                                <p style="text-align: left;">{{billingAddress}}</p>
+                              </td>
+                          <!-- First Column -->
+                          <td style="width: 10%; vertical-align: top; border: 1px solid black; text-align: center; background-color: rgb(212, 212, 212);">
+                            <!-- Centered content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">Ref.No: </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Date:</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Your Enquiry: </p>
+                            <p style="border-bottom: 0px solid black; text-align: left;">Kind Attention:</p>
+                          </td>
+                      
+                          <!-- Second Column -->
+                          <td class="abc" style="width: 10%; vertical-align: top; border: 1px solid black; text-align: right; background-color:none">
+                            <!-- Right-aligned content -->
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{RefID}}</p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">{{value | date}} </p>
+                            <p style="border-bottom: 1px solid black; text-align: left;">Email/Telephonic </p>
+                            <p style="border-bottom: 0px solid black; text-align: left;">P1</p>
+                            <p style="border-bottom: 0px solid black; text-align: left;">P2</p>
+                          </td>
+                      
+                          <!-- Third Column for Billing Address -->
+                         
+                        </tr>
+                      </table>
+
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid black; ">
+                        <tr>
+                            <td colspan="4" >
+                                <h4 style="text-align: center; background-color: rgb(212, 212, 212);"><strong> TERMS AND CONDITIONS
+                                    </strong> 
+
+                                </h4>
+                            </td>
+                        </tr>
+<tr>
+                        <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                            <p>1.</p>
+                        </td>
+                        
+
+
+                            <td style="width: 2px; vertical-align: top; border: 1px solid black;">
+                                <p >Price</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >Packing, Forwarding, Frieght & Insurance at 3% extra..</p>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >2.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Exclusions</p>
+
+                            </td>
+
+
+                            <td style="width: 100%; vertical-align: top; border: 1px solid black;">
+                                <p >Desktop PC with Licensed Microsoft Windows 10 Professional 64-Bit Operating system & 
+                                    MS Office® Basic (or higher) required and under your scope.
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >3.</p>
+
+                            </td>
+
+
+                            <td style="width: 20px; vertical-align: top; border: 1px solid black;">
+                                <p >Validity</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >45 days from the date hereof.
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >4.</p>
+
+                            </td>
+
+
+                            <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                                <p >Delivery</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >2-3 weeks from the date of receipt of technically and commercially clear Purchase Order.</p>
+
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >5.</p>
+
+                            </td>
+
+
+                            <td style="width: 20; vertical-align: top; border: 1px solid black;">
+                                <p >Tax</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >GST @18% at present. But, the Sales Tax applicable at the time of delivery will be <br>
+                                    charged, as per Govt. rules. </p>
+
+                            </td>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >6.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >  GST Details </p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p > <strong> GSTIN: 29AAACC8014D1Z0    HSN: 84719000    SAC: 998717 </strong>
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >7.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Payment terms
+
+                                </p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >100% advance with Purchase Order. </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >8.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Inspection</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >Inspection can be carried out at our premises before dispatch.</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >9.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Warranty</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >1.The Upgradation comes with standard 12 months Warranty from date of commissioning against faulty material and poor workmanship. <br>
+                                   2. Limited Free Service will be provided during the Warranty period.
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >10.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Software Upgrades</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >1.Generic software upgrades on this platform will be updated to you free of cost  
+                                    for the Warranty Period. <br>
+                                    2.Specific/value-added software features including that on Motion-Control/other 
+                                     hardware modules are excluded.
+
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >11.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >System Upgrades</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >1.This system can be upgraded to fully automatic CNC Inspection System. <br>
+                                    2.We offer Telescopic rates on exchange offer, plus extended warranty in cases where
+                                    upgrades are not hardware/software compatible (Software upgrades may entail upgrading the PC as well, which is your scope).
+                                 
+                                </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >12.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Installation & Commissioning</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >We will commission & install the instrument at your site for ₹0. One day free training is included.</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >13.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Training</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >We can train your engineers to extract the power of vision technology for fine 
+                                    metrology. Training cost is <strong> ₹7,200</strong> per day and <strong>₹0.</strong>as to and fro charges. </p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >14.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Jurisdiction</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >Subject to Bangalore, India Jurisdiction.</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >15.</p>
+
+                            </td>
+
+
+                            <td style="width: 5%; vertical-align: top; border: 1px solid black;">
+                                <p >Internet Access</p>
+
+                            </td>
+
+
+                            <td style="width: 70%; vertical-align: top; border: 1px solid black;">
+                                <p >The System connected to Rapid-I must have internet access. </p>
+
+                            </td>
+                        </tr>
+                        
+
+
+                    </table>
+                    </div>
+                    <div style="text-align: left;">
+                  
+                        <p>For  <strong> CUSTOMISED TECHNOLOGIES (P) LTD.,</strong></p>
+    
+                       <strong> Shivaputra B Dinni </strong> <br />
+                       <strong>    (Sr. Application Engg) </strong><br />
+    
+                     
+                    </div> </div>
+
+              
+
+
+            </div><br>
+
+            <div>&nbsp;</div>
+
+        <!-- <button type="button" class="btn btn-success" data-dismiss="modal"
+            style="background-color: rgb(27, 9, 129);" (click)="save()">SAVE</button>  -->
+
+            <div class="col-md-12 row"><br><br><br>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                    
+        <button style="width: 50%;" type="button" class="btn btn-success" data-dismiss="modal"
+        style="background-color: rgb(27, 9, 129);" (click)="save()">SAVE</button> 
+                </div>
+                <div class="col-md-2">
+                    <input style="width: 50%;" type="button" (click)="print('printsection')" value="PRINT"
+                        class="form-control btn-warning" />
+                </div>
+                <br><br> <br><br> <br><br> <br><br><br> <br><br>
+                <div class="col-md-4">&nbsp;</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+

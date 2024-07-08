@@ -1,0 +1,27 @@
+.registration-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-row {
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    font-weight: bold;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.register-button {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,102 @@
+<br><div class="container">
+    <h2> Location Details Form</h2><br>
+    <form>
+      <div class="form-row">
+        <div class="form-group">
+         
+        
+ 
+    <label for="MachineNumber">Machine Number:</label>
+    <input type="text" id="MachineNumber" name="MachineNumber" [(ngModel)]="machineNumber" (change)="onChangeMachineNumber()" required>
+  </div>
+  <div class="form-group">
+    <label for="CompanyName">Company Name:</label>
+    <input type="text" id="CompanyName" name="CompanyName" [(ngModel)]="selectedCustomer" readonly>
+  </div>
+   
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="roadCondition">Road Condition:</label>
+          <select id="roadCondition" name="roadCondition" [(ngModel)]="roadCondition" required>
+            <option value="good">Good</option>
+            <option value="fair">Fair</option>
+            <option value="poor">Poor</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="locationType">Inside City/Outside City:</label>
+          <select id="locationType" name="locationType" [(ngModel)]="locationType" required>
+            <option value="inside">Inside City</option>
+            <option value="outside">Outside City</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nearbyLodge">Nearby Lodge:</label>
+          <input type="text" id="nearbyLodge" name="nearbyLodge" [(ngModel)]="nearbyLodge">
+        </div>
+  
+        <div class="form-group">
+          <label for="nearbyPetrolBunk">Nearby Petrol Bunk:</label>
+          <input type="text" id="nearbyPetrolBunk" name="nearbyPetrolBunk" [(ngModel)]="nearbyPetrolBunk">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nearbyHospital">Nearby Hospital:</label>
+          <input type="text" id="nearbyHospital" name="nearbyHospital" [(ngModel)]="nearbyHospital">
+        </div>
+  
+        <div class="form-group">
+          <label for="nearbyMechanicShops">Nearby Mechanic Shops:</label>
+          <input type="text" id="nearbyMechanicShops" name="nearbyMechanicShops" [(ngModel)]="nearbyMechanicShops">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nearbyMedicalShops">Nearby Medical Shops:</label>
+          <input type="text" id="nearbyMedicalShops" name="nearbyMedicalShops" [(ngModel)]="nearbyMedicalShops">
+        </div>
+  
+        <div class="form-group">
+          <label for="whatToCarry">What to Carry:</label>
+          <input type="text" id="whatToCarry" name="whatToCarry" [(ngModel)]="whatToCarry">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="hotelType">Hotel Type (Veg/Non-Veg):</label>
+          <input type="radio" id="veg" name="hotelType" value="veg" [(ngModel)]="hotelType"> Veg
+          <input type="radio" id="nonVeg" name="hotelType" value="nonVeg" [(ngModel)]="hotelType"> Non-Veg
+        </div>
+     
+        
+        <div class="form-group">
+          <label for="besthotels">Best Hotels</label>
+          <input type="text" id="besthotels" name="besthotels" [(ngModel)]="besthotels">
+        </div>
+      </div>
+  
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="textarea">Text Area</label>
+          <textarea id="text" id="textarea" name="textarea" [(ngModel)]="textarea"></textarea>
+        </div>
+  
+  
+       
+
+    
+  </div>
+
+  <button type="submit" class="btn btn-primary form-control btn-narrow" (click)="savelocationdetails()">Save</button>
+    </form><br><br><br></div>
